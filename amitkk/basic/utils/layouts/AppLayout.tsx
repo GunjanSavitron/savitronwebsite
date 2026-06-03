@@ -24,8 +24,10 @@ export default function AppLayout({ children, meta }: RootLayoutProps) {
   return (
     <>
       <Head>
-        <title>{meta?.title || "Fallback Title"}</title>
-        <meta name="description" content={meta?.description || "Fallback description"} />
+        <title>{meta?.title || "Savitron.ai — Finance-Domain Technology"}</title>
+        <meta name="description" content={meta?.description || "Savitron.ai is a finance-domain technology firm. We build AI agents, platforms and data systems for finance and operations — backed by 30+ years of domain expertise."} />
+        <link rel="icon" href="/images/logo-savitronai.jpeg" type="image/jpeg" />
+        <link rel="shortcut icon" href="/images/logo-savitronai.jpeg" type="image/jpeg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
