@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savitur Solutions — Website Content Review</title>
+<style>
+  body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; color: #1a1a1a; margin: 0; padding: 0; }
+  .cover { page-break-after: always; background: #061b5a; color: white; padding: 100px 60px; min-height: 700px; display: flex; flex-direction: column; justify-content: center; }
+  .cover h1 { font-size: 36pt; margin: 0 0 10px; }
+  .cover h2 { font-size: 18pt; font-weight: normal; margin: 0 0 40px; color: #FFD24C; }
+  .cover p { font-size: 12pt; margin: 4px 0; color: #ccc; }
+  .cover .meta { margin-top: 60px; border-top: 1px solid #FFD24C; padding-top: 20px; }
+  .toc { page-break-after: always; padding: 40px 60px; }
+  .toc h2 { font-size: 20pt; color: #061b5a; border-bottom: 3px solid #F2A007; padding-bottom: 8px; }
+  .toc ol { font-size: 11pt; line-height: 2.2; }
+  .toc ol li { margin-left: 0; }
+  .toc ol li a { color: #061b5a; text-decoration: none; }
+  .toc ol li span { float: right; color: #888; }
+  .section { page-break-before: always; padding: 40px 60px 30px; }
+  .section:first-of-type { page-break-before: avoid; }
+  h1.page-title { font-size: 26pt; color: #061b5a; margin: 0 0 6px; border-bottom: 4px solid #F2A007; padding-bottom: 8px; }
+  h2.section-heading { font-size: 16pt; color: #061b5a; margin: 24px 0 8px; }
+  h3.sub-heading { font-size: 13pt; color: #333; margin: 18px 0 6px; }
+  .url-badge { display: inline-block; background: #f0f0f0; border: 1px solid #ccc; padding: 3px 10px; border-radius: 4px; font-size: 9pt; color: #555; font-family: 'Courier New', monospace; margin-bottom: 16px; }
+  .image-ref { display: inline-block; background: #fff8e1; border: 1px solid #F2A007; padding: 4px 10px; border-radius: 4px; font-size: 9pt; color: #7a5c00; font-family: 'Courier New', monospace; margin: 2px 0; }
+  p { line-height: 1.6; margin: 6px 0; font-size: 11pt; }
+  .card-grid { margin: 12px 0; border-collapse: collapse; width: 100%; }
+  .card-grid td { border: 1px solid #ddd; padding: 10px 14px; vertical-align: top; font-size: 10.5pt; }
+  .card-grid th { border: 1px solid #F2A007; padding: 10px 14px; background: #F2A007; color: white; font-size: 10.5pt; text-align: left; }
+  .highlight-box { background: #f9f4e8; border-left: 4px solid #F2A007; padding: 12px 16px; margin: 12px 0; font-size: 10.5pt; }
+  .props-table { border-collapse: collapse; margin: 12px 0; }
+  .props-table td { border: 1px solid #ddd; padding: 8px 14px; font-size: 10.5pt; }
+  .props-table td:first-child { background: #f0f0f0; font-weight: bold; width: 180px; }
+  .plan-table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  .plan-table th { background: #061b5a; color: white; padding: 10px 14px; text-align: left; font-size: 10.5pt; }
+  .plan-table td { border: 1px solid #ddd; padding: 10px 14px; font-size: 10pt; vertical-align: top; }
+  .plan-table tr:nth-child(even) td { background: #fafafa; }
+  .plan-table .highlight-plan td { background: #fff8e1; }
+  .review-block { border: 1px solid #eee; border-radius: 6px; padding: 12px 16px; margin: 8px 0; background: #fafafa; }
+  .review-block .reviewer { font-weight: bold; color: #061b5a; font-size: 10.5pt; }
+  .review-block .reviewer-meta { font-size: 9.5pt; color: #777; }
+  .review-block .quote { font-style: italic; color: #333; font-size: 10.5pt; margin-top: 6px; }
+  .stars { color: #F2A007; font-size: 12pt; letter-spacing: 2px; }
+  .blog-block { border: 1px solid #ddd; padding: 14px 16px; margin: 12px 0; }
+  .blog-title { font-size: 13pt; font-weight: bold; color: #061b5a; margin-bottom: 4px; }
+  .blog-meta { font-size: 9.5pt; color: #777; margin-bottom: 8px; }
+  .blog-excerpt { font-style: italic; color: #444; font-size: 10.5pt; margin-bottom: 8px; }
+  .blog-content h2 { font-size: 12pt; color: #061b5a; margin: 12px 0 6px; }
+  .blog-content p, .blog-content li { font-size: 10.5pt; line-height: 1.6; margin: 4px 0; }
+  ul, ol { margin: 6px 0 6px 20px; padding: 0; }
+  li { margin: 4px 0; }
+  .divider { border: none; border-top: 2px solid #F2A007; margin: 24px 0; }
+  .cta-box { background: #061b5a; color: white; padding: 20px 24px; margin: 20px 0; }
+  .cta-box h3 { color: #FFD24C; margin: 0 0 6px; font-size: 14pt; }
+  .cta-box p { color: #ccc; margin: 0 0 10px; font-size: 10.5pt; }
+  .cta-box .cta-btn { display: inline-block; background: #F2A007; color: white; padding: 8px 18px; font-size: 10.5pt; font-weight: bold; }
+  .nav-badge { display: inline-block; background: #061b5a; color: #FFD24C; padding: 2px 10px; border-radius: 3px; font-size: 9.5pt; margin: 2px; }
+  @media print {
+    .section { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+  <h1>Savitur Solutions</h1>
+  <h2>Website Content — Review Document</h2>
+  <p>Prepared for: Internal / Stakeholder Review</p>
+  <p>Website: savitursolutions.com</p>
+  <div class="meta">
+    <p>Document type: Sitemap-wise page content review (no rendered images — filenames shown)</p>
+    <p>Date: April 2026</p>
+    <p>Pages covered: Home · About · 4 Services · 4 Products · Insights (6 blogs) · Contact</p>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <ol>
+    <li>Navigation &amp; Site Structure</li>
+    <li>Home Page <code>/</code></li>
+    <li>About Us <code>/about</code></li>
+    <li style="margin-top:8px"><strong>Services</strong></li>
+    <li style="margin-left:20px">4.1 Business Consulting <code>/business-consulting</code></li>
+    <li style="margin-left:20px">4.2 Fund Management <code>/fund-management</code></li>
+    <li style="margin-left:20px">4.3 HR Management <code>/hr-management</code></li>
+    <li style="margin-left:20px">4.4 Process Digitisation <code>/process-digitisation</code></li>
+    <li style="margin-top:8px"><strong>Our Products</strong></li>
+    <li style="margin-left:20px">5.1 Skimaa <code>/skimaa</code></li>
+    <li style="margin-left:20px">5.2 Zoho Tech Partner <code>/zoho-tech-partner</code></li>
+    <li style="margin-left:20px">5.3 HostOps <code>/hostops</code></li>
+    <li style="margin-left:20px">5.4 CallTech <code>/calltech</code></li>
+    <li style="margin-top:8px"><strong>Insights / Blog</strong></li>
+    <li style="margin-left:20px">6.1 Blog Listing Page <code>/blogs</code></li>
+    <li style="margin-left:20px">6.2–6.7 Blog Posts (6 posts)</li>
+    <li>Contact Us <code>/contact-us</code></li>
+  </ol>
+</div>
+
+<!-- ==================== SECTION 1: NAV ==================== -->
+<div class="section" id="nav">
+  <h1 class="page-title">1. Navigation &amp; Site Structure</h1>
+  <div class="url-badge">Global Header — all pages</div>
+
+  <h2 class="section-heading">Logo</h2>
+  <div class="image-ref">/images/logo-savitur.png</div>
+  <p>Left-aligned. Links to home page (<code>/</code>).</p>
+
+  <h2 class="section-heading">Top Navigation Bar — Desktop</h2>
+  <table class="card-grid">
+    <tr><th>Menu Item</th><th>Link / Type</th><th>Sub-items</th></tr>
+    <tr><td>Home</td><td>/</td><td>—</td></tr>
+    <tr><td>About</td><td>/about</td><td>—</td></tr>
+    <tr><td>Services</td><td>Dropdown</td><td>Business Consulting · Fund Management · HR Management · Process Digitisation</td></tr>
+    <tr><td>Our Products</td><td>Dropdown</td><td>Skimaa · Zoho Tech Partner · HostOps · CallTech</td></tr>
+    <tr><td>Insights</td><td>/blogs</td><td>—</td></tr>
+    <tr><td>Contact</td><td>/contact-us</td><td>—</td></tr>
+  </table>
+
+  <h2 class="section-heading">Footer (inherited from AppLayout)</h2>
+  <p>Standard footer — includes logo, navigation links, social media icons, and copyright.</p>
+</div>
+
+<!-- ==================== SECTION 2: HOME ==================== -->
+<div class="section" id="home">
+  <h1 class="page-title">2. Home Page</h1>
+  <div class="url-badge">URL: /</div>
+
+  <h2 class="section-heading">Hero Banner Carousel</h2>
+  <p>Auto-play fade carousel with 4 full-width banner images:</p>
+  <ul>
+    <li><div class="image-ref">/images/static/banners/homepage-web-banner-01.jpg</div></li>
+    <li><div class="image-ref">/images/static/banners/homepage-web-banner-02.jpg</div></li>
+    <li><div class="image-ref">/images/static/banners/homepage-web-banner-03.jpg</div</li>
+    <li><div class="image-ref">/images/static/banners/homepage-web-banner-04.jpg</div></li>
+  </ul>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Industry Portfolio</h2>
+  <p>Section heading: <strong>Industry Portfolio</strong></p>
+  <p>Carousel of 6 industry icons with labels:</p>
+  <table class="card-grid">
+    <tr><th>Label</th><th>Image</th></tr>
+    <tr><td>Financial Services</td><td><span class="image-ref">/images/icons/services/financialservices.jpg</span></td></tr>
+    <tr><td>Hospitality</td><td><span class="image-ref">/images/icons/services/hospitality.jpg</span></td></tr>
+    <tr><td>Manufacturing</td><td><span class="image-ref">/images/icons/services/manufacturing.jpg</span></td></tr>
+    <tr><td>Other Services</td><td><span class="image-ref">/images/icons/services/otherservices.jpg</span></td></tr>
+    <tr><td>Retail</td><td><span class="image-ref">/images/icons/services/retail.jpg</span></td></tr>
+    <tr><td>eCommerce</td><td><span class="image-ref">/images/icons/services/ecommerce.jpg</span></td></tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Services Offered</h2>
+  <p>Section heading: <strong>Services Offered</strong></p>
+  <p>Sub-text: <em>"A comprehensive suite of services designed to address your most pressing business needs and unlock your full potential."</em></p>
+  <table class="card-grid">
+    <tr><th>Service Title</th><th>Description</th><th>Link</th><th>Icon</th></tr>
+    <tr><td>Business Consulting</td><td>Strategy, growth planning and operational excellence.</td><td>/business-consulting</td><td><span class="image-ref">/images/icons/services/business-consulting.svg</span></td></tr>
+    <tr><td>Fund Management</td><td>Capital advisory, structuring and investor readiness.</td><td>/fund-management</td><td><span class="image-ref">/images/icons/services/fund-management.svg</span></td></tr>
+    <tr><td>HR Management</td><td>Talent systems, compliance and performance frameworks.</td><td>/hr-management</td><td><span class="image-ref">/images/icons/services/hr-management.svg</span></td></tr>
+    <tr><td>Process Digitisation</td><td>Automation, digital workflows and transformation.</td><td>/process-digitisation</td><td><span class="image-ref">/images/icons/services/process-digitisation.svg</span></td></tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Our Trusted Business Partners</h2>
+  <p>Section heading: <strong>Our Trusted Business Partners</strong></p>
+  <p>Sub-text: <em>"We collaborate with industry leaders to deliver comprehensive solutions and drive success for our clients."</em></p>
+  <table class="card-grid">
+    <tr><th>Partner Name</th><th>Logo Image</th></tr>
+    <tr><td>AccoServe</td><td><span class="image-ref">/images/icons/partners/accoserve.jpg</span></td></tr>
+    <tr><td>ASVA</td><td><span class="image-ref">/images/icons/partners/asva.jpg</span></td></tr>
+    <tr><td>DDR</td><td><span class="image-ref">/images/icons/partners/ddr.jpg</span></td></tr>
+    <tr><td>FocusPods</td><td><span class="image-ref">/images/icons/partners/focuspods.jpg</span></td></tr>
+    <tr><td>Amitkk</td><td><span class="image-ref">/images/icons/partners/amitkk-logo.svg</span></td></tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Stats Bar</h2>
+  <table class="card-grid">
+    <tr><th>Stat</th><th>Label</th><th>Icon</th></tr>
+    <tr><td><strong>30+</strong></td><td>Years of Experience</td><td><span class="image-ref">/images/icons/services/experience.svg</span></td></tr>
+    <tr><td><strong>20+</strong></td><td>Clients Served</td><td><span class="image-ref">/images/icons/services/clients.svg</span></td></tr>
+    <tr><td><strong>3+</strong></td><td>Locations</td><td><span class="image-ref">/images/icons/services/locations.svg</span></td></tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">What Our Clients Say — Testimonials</h2>
+  <p>Section heading: <strong>What Our Clients Say</strong></p>
+  <p>Swiper carousel (3 visible on desktop), auto-play 5 sec:</p>
+
+  <div class="review-block">
+    <div class="stars">★★★★★</div>
+    <div class="quote">"Savitur Solutions transformed our entire business model. Their strategic insights led to a 300% increase in revenue within 18 months. Absolutely exceptional work."</div>
+    <div class="reviewer-meta">CEO — TechFlow Solutions</div>
+  </div>
+  <div class="review-block">
+    <div class="stars">★★★★★</div>
+    <div class="quote">"The team's expertise in market expansion helped us enter 5 new countries successfully. Their guidance was invaluable for our international growth strategy."</div>
+    <div class="reviewer-meta">Founder — GreenEnergy Corp</div>
+  </div>
+  <div class="review-block">
+    <div class="stars">★★★★★</div>
+    <div class="quote">"Outstanding operational optimization! They streamlined our processes and reduced costs by 40% while improving quality. True professionals who deliver results."</div>
+    <div class="reviewer-meta">COO — HealthTech Innovations</div>
+  </div>
+  <div class="review-block">
+    <div class="stars">★★★★★</div>
+    <div class="quote">"Their digital transformation strategy revolutionized our customer experience. We saw a 250% increase in customer satisfaction and retention rates."</div>
+    <div class="reviewer-meta">VP Strategy — Retailmax</div>
+  </div>
+  <div class="review-block">
+    <div class="stars">★★★★★</div>
+    <div class="quote">"Savitur Solutions's financial planning expertise helped us optimize our investment portfolio and achieve 35% better returns than industry average."</div>
+    <div class="reviewer-meta">Managing Director — FinanceFirst</div>
+  </div>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Why Choose Us</h2>
+  <p>Section heading: <strong>Why Choose Us</strong></p>
+  <table class="card-grid">
+    <tr><th>Label</th><th>Icon</th></tr>
+    <tr><td>Value Add to Business</td><td><span class="image-ref">/images/icons/services/business-value.svg</span></td></tr>
+    <tr><td>Innovative Mindset</td><td><span class="image-ref">/images/icons/services/innovative.svg</span></td></tr>
+    <tr><td>Personalised Solutions</td><td><span class="image-ref">/images/icons/services/solutions.svg</span></td></tr>
+    <tr><td>Embracing Non Conventional Mindset</td><td><span class="image-ref">/images/icons/services/mindset.svg</span></td></tr>
+    <tr><td>Leverage Latest Technologies &amp; Tools</td><td><span class="image-ref">/images/icons/services/tools.svg</span></td></tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Contact CTA Section (Bottom of Home)</h2>
+  <div class="cta-box">
+    <h3>Get in Touch</h3>
+    <p>We're here to help you transform your business and take full control of it. Reach out through any of these channels.</p>
+    <p>📍 1st Floor, Orchid Business Park, Sohna Road, Sector 48, Gurugram.</p>
+    <p>✉️ team@savitursolutions.com</p>
+    <p>📞 +91 9916600370 &nbsp;|&nbsp; +91 7838136381</p>
+    <p><em>(Contact form embedded on right side)</em></p>
+  </div>
+</div>
+
+<!-- ==================== SECTION 3: ABOUT ==================== -->
+<div class="section" id="about">
+  <h1 class="page-title">3. About Us</h1>
+  <div class="url-badge">URL: /about</div>
+
+  <h2 class="section-heading">Hero Banner</h2>
+  <div class="image-ref">/images/static/banners/about-us-web-banner.jpg</div>
+  <div class="image-ref">/images/static/banners/about-us-web-banner-mobile.jpg</div>
+  <p>Page heading overlaid on banner: <strong>About Us</strong></p>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">About Savitur Solutions</h2>
+  <div class="image-ref">/images/static/services/about-us.jpg</div>
+  <p><em>(Right-side image alongside text below)</em></p>
+  <p>At Savitur, we pride ourselves on our team of professionals who bring over 30 years of invaluable corporate experience to the table. Each member of our team is a seasoned expert in their respective fields, with a proven track record of success in navigating the complexities of the corporate world.</p>
+  <p>As a Chartered Accountants led Consultancy, we specialize in providing comprehensive financial management solutions for businesses and individuals. We committed to helping organizations unlock their full potential through strategic innovation, operational excellence, and sustainable growth strategies.</p>
+  <p>Our vision is simple yet impactful — to empower businesses to not just adapt to change but to lead it.</p>
+  <p>We don't believe in one-size-fits-all solutions. Instead, we develop customized strategies that align with your organization's unique vision, culture, and goals, ensuring results that are both impactful and sustainable.</p>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Three Pillars</h2>
+  <table class="card-grid">
+    <tr><th>Pillar</th><th>Description</th></tr>
+    <tr>
+      <td><strong>Strategic Vision</strong></td>
+      <td>We help you see beyond short-term constraints to identify transformative opportunities. By combining market intelligence with future-focused thinking, we enable you to anticipate trends, mitigate risks, and position your business for sustained success.</td>
+    </tr>
+    <tr>
+      <td><strong>Proven Methodologies</strong></td>
+      <td>Our time-tested frameworks and data-driven approaches deliver consistent, measurable outcomes. Whether it's streamlining operations, optimizing workflows, or executing market entry strategies, our processes are designed for efficiency and scalability.</td>
+    </tr>
+    <tr>
+      <td><strong>Collaborative Partnership</strong></td>
+      <td>We believe the best results come from working together. Acting as an extension of your leadership team, we build strong relationships based on trust, transparency, and shared objectives — ensuring that your success is our success.</td>
+    </tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Meet Our Leadership</h2>
+  <p>Section heading: <strong>Meet Our Leadership</strong></p>
+
+  <div class="review-block">
+    <div class="reviewer">CA Hena Agrawal — Co-Founder</div>
+    <div class="image-ref">/images/static/team/hena-agrawal.jpg</div>
+    <p>A visionary leader with over 15 years of experience in private equity fund management, Financial Accounting &amp; Reporting, strategic finance and business advisory, helping companies achieve exponential growth. Formerly worked with Macquarie, Goldman Sachs, Vedanta, KPMG!</p>
+    <div class="reviewer-meta">📞 +91 9916600370 &nbsp; ✉️ hena.agrawal@savitursolutions.com &nbsp; LinkedIn: linkedin.com/in/hena-agrawal-211aa056</div>
+  </div>
+
+  <div class="review-block">
+    <div class="reviewer">CA Vivek Sharma — Co-Founder</div>
+    <div class="image-ref">/images/static/team/vivek-sharma.jpg</div>
+    <p>A business expert with 15+ years of experience in Commercials, strategic finance, FP&amp;A, optimizing business processes and driving efficiency for a diverse portfolio of clients. Formerly worked with Samsung, Jindal, Minda, Mitsubishi!</p>
+    <div class="reviewer-meta">📞 +91 7838136381 &nbsp; ✉️ s.vivek@savitursolutions.com &nbsp; LinkedIn: linkedin.com/in/vivek-sharma-25704867</div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 4.1: BUSINESS CONSULTING ==================== -->
+<div class="section" id="business-consulting">
+  <h1 class="page-title">4.1 Business Consulting</h1>
+  <div class="url-badge">URL: /business-consulting</div>
+
+  <h2 class="section-heading">Hero Banner</h2>
+  <div class="image-ref">/images/static/banners/business-consulting-web-banner.jpg</div>
+  <p>Page heading: <strong>Business Consulting</strong></p>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Introduction</h2>
+  <div class="image-ref">/images/static/parallax/business-consulting.jpg</div>
+  <p><em>(Right-side parallax image)</em></p>
+  <p><strong>Your trusted partner for business growth and operational excellence</strong></p>
+  <p>Savitur Solutions is a Chartered Accountants led Consultancy offering end-to-end business advisory for founders, SMEs and growing enterprises. We combine deep domain experience with modern tools to help you build a resilient, scalable business.</p>
+  <p>From entity set-up to ongoing finance function support, we operate as an extension of your leadership team — delivering clarity on numbers, confidence in compliance and a platform for sustainable growth.</p>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">What We Offer</h2>
+  <table class="card-grid">
+    <tr><th>Service</th><th>Description</th></tr>
+    <tr><td>Company Incorporation</td><td>Assistance with deciding the right legal entity requirement (Company or Partnership) &amp; registering the business entity.</td></tr>
+    <tr><td>Business Accounting</td><td>We ensure essential aspects of business data are recorded correctly using the latest technologies to provide meaningful business analytics.</td></tr>
+    <tr><td>FP&amp;A</td><td>Support with financial planning, budgeting, forecasting, and MIS for assisting in right business decisions at right time.</td></tr>
+    <tr><td>Working Capital Management</td><td>Effective management of receivables, payables and inventory to keep operations efficient and cash flows healthy.</td></tr>
+    <tr><td>Strategic CFO Advisory</td><td>We provide strategic financial planning, access to funding sources such as venture capital, angel investors, or crowdfunding platforms and advisory services, including business valuation, succession planning and mergers &amp; acquisitions.</td></tr>
+    <tr><td>Finalisation of Accounts</td><td>We offer finalisation of accounts and other records for the purpose of periodic statutory &amp; internal audits.</td></tr>
+    <tr><td>Compliances</td><td>Adherence to legal, tax and all other regulatory compliances.</td></tr>
+    <tr><td>Taxation</td><td>GST, TDS and other tax reportings.</td></tr>
+    <tr><td>Startup Support</td><td>Complete planning and financial setup support along with project management.</td></tr>
+  </table>
+
+  <div class="cta-box">
+    <h3>Ready to take your business forward?</h3>
+    <p>Speak to our consultants and discover how we can support your growth journey.</p>
+    <span class="cta-btn">Get in touch → /contact-us</span>
+  </div>
+</div>
+
+<!-- ==================== SECTION 4.2: FUND MANAGEMENT ==================== -->
+<div class="section" id="fund-management">
+  <h1 class="page-title">4.2 Fund Management</h1>
+  <div class="url-badge">URL: /fund-management</div>
+
+  <h2 class="section-heading">Hero Banner</h2>
+  <div class="image-ref">/images/static/banners/fund-management-web-banner.jpg</div>
+  <p>Page heading: <strong>Fund Management</strong></p>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Introduction</h2>
+  <div class="image-ref">/images/static/parallax/fund-management.jpg</div>
+  <p><strong>Expert fund accounting for modern investment firms</strong></p>
+  <p>We offer expert fund accounting services tailored for investment firms, family offices, and fund managers. Our solutions ensure accurate tracking of complex financial transactions, portfolio valuations, and investor reporting, all in compliance with industry standards and regulatory requirements.</p>
+  <p>By leveraging advanced accounting systems and our industry expertise, we deliver timely financial insights. Whether managing multiple entities or diverse asset classes, our fund accounting services help you maintain control, ensure timely reporting and enhance investor confidence with precision and reliability.</p>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Fund Types Covered</h2>
+  <ul>
+    <li>Fund of Funds</li>
+    <li>Secondary Funds</li>
+    <li>Private Equity / Venture Fund</li>
+    <li>Co Investment / SPV</li>
+  </ul>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">We've Got All Covered!</h2>
+  <p>Full-service list:</p>
+  <table class="card-grid">
+    <tr>
+      <td>Complete Fund Accounting</td>
+      <td>Portfolio Accounting</td>
+      <td>Capital Calls</td>
+    </tr>
+    <tr>
+      <td>Distributions</td>
+      <td>Investor Statements / CAS</td>
+      <td>IRR &amp; Performance Metrics</td>
+    </tr>
+    <tr>
+      <td>NAV Calculation</td>
+      <td>Management Fees</td>
+      <td>Waterfall &amp; Performance Fee Calculations</td>
+    </tr>
+    <tr>
+      <td>Investor Queries</td>
+      <td>Equalisation Workings</td>
+      <td>Seed Investment Accounting</td>
+    </tr>
+    <tr>
+      <td>Regulatory Reporting</td>
+      <td>Side Letter Reporting Requirements</td>
+      <td>Investor Reports</td>
+    </tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Key Capabilities</h2>
+  <table class="card-grid">
+    <tr><th>Capability</th><th>Description</th></tr>
+    <tr><td>Domain Experience</td><td>We understand the complex fund structures, including private equity, hedge funds and venture capital and their reporting requirements.</td></tr>
+    <tr><td>Technology</td><td>We leverage best accounting tools to manage large data sets, complicated fund structures and automate accurate &amp; timely reporting.</td></tr>
+    <tr><td>Regulatory</td><td>We offer compliance with IFRS, US GAAP, AIFMD and other international regulatory reporting requirements.</td></tr>
+    <tr><td>Customization</td><td>We offer solutions aligned with the fund strategy, fund geography, investor base, reporting frequency and industry best practices.</td></tr>
+  </table>
+
+  <div class="cta-box">
+    <h3>Need a fund accounting partner?</h3>
+    <p>Talk to our specialists about how we can support your fund's operations and reporting.</p>
+    <span class="cta-btn">Get in touch → /contact-us</span>
+  </div>
+</div>
+
+<!-- ==================== SECTION 4.3: HR MANAGEMENT ==================== -->
+<div class="section" id="hr-management">
+  <h1 class="page-title">4.3 HR Management</h1>
+  <div class="url-badge">URL: /hr-management</div>
+
+  <h2 class="section-heading">Hero Banner</h2>
+  <div class="image-ref">/images/static/banners/hr-management-web-banner.jpg</div>
+  <p>Page heading: <strong>HR Management</strong></p>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Introduction</h2>
+  <div class="image-ref">/images/static/parallax/hr-management.jpg</div>
+  <p><strong>People, process and compliance — handled</strong></p>
+  <p>We bring structure to your HR function across the entire employee lifecycle — from attracting the right talent to running payroll, managing compliance and delivering modern digital experiences through our HRMS platform.</p>
+  <p>Whether you are a growing startup or an established enterprise, our solutions are designed to scale with you while keeping your people experience and regulatory obligations in perfect balance.</p>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Our HR Services</h2>
+  <table class="card-grid">
+    <tr><th>Service</th><th>Description</th><th>Image</th></tr>
+    <tr>
+      <td>Recruitment / Resourcing</td>
+      <td>We develop an understanding of your business and culture to act as a strategic partner — using targeted sourcing across job boards, professional networks, referrals and passive candidate outreach, supported by employer branding that highlights your employee value proposition and career growth opportunities.</td>
+      <td><span class="image-ref">/images/static/services/hrprocess.jpg</span></td>
+    </tr>
+    <tr>
+      <td>Payroll Outsourcing</td>
+      <td>Let us handle your payroll operations with accuracy — salary processing, statutory deductions, reimbursements and payslips delivered on time, every cycle.</td>
+      <td><span class="image-ref">/images/static/services/payroll-compliance.jpeg</span></td>
+    </tr>
+    <tr>
+      <td>PF, ESI &amp; Statutory Compliances</td>
+      <td>Ensuring compliance with all statutory requirements including PF, ESI, PT, LWF and labour law filings — so your HR function runs clean and audit-ready.</td>
+      <td><span class="image-ref">/images/static/services/hrms.png</span></td>
+    </tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">HRMS Application</h2>
+  <div class="image-ref">/images/static/services/hrms.png</div>
+  <p>A unified HRMS platform to centralise your people data, automate the day-to-day and give your employees a modern self-service experience.</p>
+  <table class="card-grid">
+    <tr><th>Feature</th><th>Description</th></tr>
+    <tr><td>Centralized Employee Information</td><td>Store and access all employee records in one secure, cloud-based platform.</td></tr>
+    <tr><td>Automated Attendance &amp; Leave Management</td><td>Real-time tracking with custom policies tailored to your organisation.</td></tr>
+    <tr><td>Seamless Payroll Management</td><td>Automates calculations ensuring compliance with statutory and company rules.</td></tr>
+    <tr><td>Performance &amp; Appraisal System</td><td>Tracks achievements, goals and identifies high performers across teams.</td></tr>
+    <tr><td>Recruitment &amp; Onboarding</td><td>Integrates job posting through digital onboarding in one connected flow.</td></tr>
+    <tr><td>Employee Self-Service Portal</td><td>Access payslips, apply for leave and raise requests anytime, anywhere.</td></tr>
+    <tr><td>Customizable &amp; Scalable</td><td>Adapts to organisational needs as you grow — no rebuild required.</td></tr>
+  </table>
+
+  <div class="cta-box">
+    <h3>Let's build your HR backbone</h3>
+    <p>From hiring to HRMS, we bring everything your people function needs — under one roof.</p>
+    <span class="cta-btn">Talk to our team → /contact-us</span>
+  </div>
+</div>
+
+<!-- ==================== SECTION 4.4: PROCESS DIGITISATION ==================== -->
+<div class="section" id="process-digitisation">
+  <h1 class="page-title">4.4 Process Digitisation</h1>
+  <div class="url-badge">URL: /process-digitisation</div>
+
+  <h2 class="section-heading">Hero Banner</h2>
+  <div class="image-ref">/images/static/banners/process-digitisation-web-banner.jpg</div>
+  <p>Page heading: <strong>Process Digitisation</strong></p>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Introduction</h2>
+  <div class="image-ref">/images/static/parallax/process-digitisation.jpg</div>
+  <p><strong>Enhancing financial workflows through innovative technology</strong></p>
+  <p>Finance process digitisation refers to the transformation of traditional, paper-based, and manual financial workflows into streamlined, technology-driven processes.</p>
+  <p>Digitisation automates activities including invoicing, accounts payable and receivable, expense management, payroll, and financial reconciliations — using ERP systems, cloud-based accounting software, robotic process automation, and AI-powered analytics.</p>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Why Digitise Your Finance Function</h2>
+  <ul>
+    <li>Eliminates inefficiencies and reduces errors</li>
+    <li>Improves transparency across finance operations</li>
+    <li>Enables real-time data capture and reporting</li>
+    <li>Enhances decision-making with timely insights</li>
+    <li>Supports better cash flow management</li>
+    <li>Improves compliance with detailed audit trails</li>
+    <li>Strengthens data security across systems</li>
+    <li>Frees finance teams to focus on strategic roles</li>
+  </ul>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Our Offerings</h2>
+  <table class="card-grid">
+    <tr><th>Offering</th><th>Description</th><th>Image</th></tr>
+    <tr>
+      <td>eTCR</td>
+      <td>Customised software serving as a handy tool for all service engineers — built to streamline field operations and reporting.</td>
+      <td><span class="image-ref">/images/static/services/business-tools/etcr.jpg</span></td>
+    </tr>
+    <tr>
+      <td>Zoho Implementation</td>
+      <td>We offer Zoho Implementation and customisation as per your specific business needs — from Books to CRM and the full Zoho One suite.</td>
+      <td><span class="image-ref">/images/static/services/business-tools/zoho.jpg</span></td>
+    </tr>
+  </table>
+
+  <h2 class="section-heading">Process Chart</h2>
+  <div class="image-ref">/images/static/services/process-digitisation-chart.jpg</div>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Other Business Accounting Tools Supported</h2>
+  <p><em>"We work across the leading finance and operations platforms — implementing, customising and supporting them end-to-end."</em></p>
+  <table class="card-grid">
+    <tr><th>Tool</th><th>Logo Image</th></tr>
+    <tr><td>Xero</td><td><span class="image-ref">/images/static/services/business-tools/xero.jpg</span></td></tr>
+    <tr><td>Odoo</td><td><span class="image-ref">/images/static/services/business-tools/odoo.jpg</span></td></tr>
+    <tr><td>QuickBooks</td><td><span class="image-ref">/images/static/services/business-tools/quickbooks.jpg</span></td></tr>
+    <tr><td>FundCount</td><td><span class="image-ref">/images/static/services/business-tools/fundcount.jpg</span></td></tr>
+    <tr><td>HRMS</td><td><span class="image-ref">/images/static/services/business-tools/hrms.jpg</span></td></tr>
+    <tr><td>CShare</td><td><span class="image-ref">/images/static/services/business-tools/cshare.jpg</span></td></tr>
+  </table>
+
+  <div class="cta-box">
+    <h3>Ready to digitise your finance function?</h3>
+    <p>Let's build a technology roadmap tailored to your business scale and industry.</p>
+    <span class="cta-btn">Start the conversation → /contact-us</span>
+  </div>
+</div>
+
+<!-- ==================== SECTION 5.1: SKIMAA ==================== -->
+<div class="section" id="skimaa">
+  <h1 class="page-title">5.1 Skimaa (Product)</h1>
+  <div class="url-badge">URL: /skimaa</div>
+
+  <h2 class="section-heading">Hero Section</h2>
+  <div class="image-ref">/images/logo-savitur.png</div>
+  <p><strong>Skimaa</strong></p>
+  <p>Automated reconciliation and audit for modern finance teams. Match faster, close cleaner, sleep better.</p>
+  <p>CTA 1: <strong>Request a demo</strong> → /contact-us</p>
+  <p>CTA 2: <strong>Talk to sales</strong> → /contact-us</p>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Product Description</h2>
+  <p><strong>Reconcile everything. Miss nothing.</strong></p>
+  <p>Skimaa brings your ledgers, bank statements, custodian files and internal systems together into one intelligent reconciliation engine. Drop your data in, configure your rules, and let Skimaa handle the rest — with a full audit trail and real-time exception tracking.</p>
+  <p>Built by finance professionals for finance professionals, Skimaa replaces spreadsheet sprawl with a configurable, auditable platform that scales with your transaction volume — from your first month-end to your hundredth.</p>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Features — "Built for the way finance actually works"</h2>
+  <p><em>"Every feature in Skimaa solves a problem you've hit before — from messy data imports to audit season scrambles. Here's what makes it different."</em></p>
+  <table class="card-grid">
+    <tr><th>Feature</th><th>Description</th><th>Icon</th></tr>
+    <tr><td>Automated Reconciliation</td><td>Run reconciliations across ledgers, bank statements and portfolios without manual intervention.</td><td><span class="image-ref">/images/icons/skimaa/automated.svg</span></td></tr>
+    <tr><td>Real-time Processing</td><td>See your data move as it happens — no overnight batches, no blind spots.</td><td><span class="image-ref">/images/icons/skimaa/realtime.svg</span></td></tr>
+    <tr><td>Zero Leakage</td><td>Close every exception loop so nothing slips through the cracks between systems.</td><td><span class="image-ref">/images/icons/skimaa/zero-leakage.svg</span></td></tr>
+    <tr><td>Advanced Analytics</td><td>Drill into trends, anomalies and exceptions with interactive dashboards built for finance teams.</td><td><span class="image-ref">/images/icons/skimaa/analytics.svg</span></td></tr>
+    <tr><td>Audit Ready</td><td>A complete, tamper-evident audit trail of every match, break and user action — always export-ready.</td><td><span class="image-ref">/images/icons/skimaa/audit.svg</span></td></tr>
+    <tr><td>Fast Data Upload</td><td>Import from Excel, CSV, bank feeds or APIs in seconds — map once, reuse forever.</td><td><span class="image-ref">/images/icons/skimaa/upload-data.svg</span></td></tr>
+    <tr><td>Configurable Rules</td><td>Define matching logic, tolerance thresholds and workflows without writing a single line of code.</td><td><span class="image-ref">/images/icons/skimaa/configure.svg</span></td></tr>
+    <tr><td>Smart Reconcile</td><td>AI-assisted matching learns from your team's decisions and gets sharper with every cycle.</td><td><span class="image-ref">/images/icons/skimaa/reconcile.svg</span></td></tr>
+    <tr><td>Instant Reports</td><td>Schedule and distribute reconciliation, exception and MIS reports to stakeholders automatically.</td><td><span class="image-ref">/images/icons/skimaa/reports.svg</span></td></tr>
+    <tr><td>Time Saved</td><td>Collapse month-end from days to hours — and give your finance team their evenings back.</td><td><span class="image-ref">/images/icons/skimaa/time.svg</span></td></tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">How Skimaa Works</h2>
+  <table class="card-grid">
+    <tr><th>Step</th><th>Title</th><th>Description</th></tr>
+    <tr><td>1</td><td>Upload Your Data</td><td>Bring in ledgers, bank statements and portfolio files from any source — Excel, CSV, API or bank feeds.</td></tr>
+    <tr><td>2</td><td>Configure Rules</td><td>Set up matching criteria, tolerance levels and workflows with a visual, no-code rule builder.</td></tr>
+    <tr><td>3</td><td>Reconcile &amp; Report</td><td>Skimaa matches, flags exceptions and generates audit-ready reports — automatically, on schedule.</td></tr>
+  </table>
+
+  <div class="cta-box">
+    <h3>See Skimaa in action</h3>
+    <p>Book a 30-minute walkthrough with our product team and see how Skimaa fits your reconciliation workflow.</p>
+    <span class="cta-btn">Request a demo → /contact-us</span>
+  </div>
+</div>
+
+<!-- ==================== SECTION 5.2: ZOHO TECH PARTNER ==================== -->
+<div class="section" id="zoho-tech-partner">
+  <h1 class="page-title">5.2 Zoho Tech Partner (Product)</h1>
+  <div class="url-badge">URL: /zoho-tech-partner</div>
+
+  <h2 class="section-heading">Hero Section</h2>
+  <div class="image-ref">/images/static/banners/process-digitisation-web-banner.jpg</div>
+  <div class="image-ref">/images/static/services/business-tools/zoho.jpg</div> <em>(Logo badge)</em>
+  <p><strong>Zoho Tech Partner</strong></p>
+  <p>Implementation, customisation and ongoing support across the Zoho One suite.</p>
+  <p>As an authorised Zoho partner, we help teams move onto Zoho Books, CRM, People, Inventory and the wider Zoho One ecosystem — and keep them running as the business grows.</p>
+
+  <h2 class="section-heading">Properties</h2>
+  <table class="props-table">
+    <tr><td>Modules Supported</td><td>40+</td></tr>
+    <tr><td>Implementations</td><td>120+</td></tr>
+    <tr><td>Avg. Go-Live</td><td>4 weeks</td></tr>
+    <tr><td>Support SLA</td><td>8 business hrs</td></tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Features</h2>
+  <table class="card-grid">
+    <tr><th>Feature</th><th>Description</th></tr>
+    <tr><td>Zoho Books Setup</td><td>GST-ready chart of accounts, banking integration and automated workflows mapped to your operating model.</td></tr>
+    <tr><td>CRM Implementation</td><td>Sales pipelines, lead scoring, automation rules and dashboards that your team will actually use.</td></tr>
+    <tr><td>Custom Workflows</td><td>Deluge scripts, blueprint flows and webhooks tailored to your unique business logic.</td></tr>
+    <tr><td>Data Migration</td><td>Clean, mapped, validated migration from Tally, Excel, QuickBooks or any legacy stack.</td></tr>
+    <tr><td>Integrations</td><td>Connect Zoho with payment gateways, banks, e-commerce platforms and your bespoke tooling.</td></tr>
+    <tr><td>Training &amp; Support</td><td>Role-based onboarding, refreshers and a dedicated support channel for your team.</td></tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Pricing Plans</h2>
+  <table class="plan-table">
+    <tr><th>Plan</th><th>Price</th><th>Cadence</th><th>Description</th><th>Includes</th></tr>
+    <tr>
+      <td>Starter</td><td>₹35,000</td><td>one-time</td>
+      <td>For teams adopting one or two Zoho apps.</td>
+      <td>Single module setup (Books or CRM) · Up to 5 users · Basic chart of accounts · Email-based support for 30 days · 1 training session</td>
+    </tr>
+    <tr class="highlight-plan">
+      <td><strong>Growth ★ Most Popular</strong></td><td><strong>₹95,000</strong></td><td>one-time</td>
+      <td>Multi-module rollout with custom workflows.</td>
+      <td>Up to 4 Zoho modules · Up to 25 users · Custom workflows &amp; automation · Data migration from one source · 3 training sessions · 60 days post-go-live support</td>
+    </tr>
+    <tr>
+      <td>Enterprise</td><td>Custom</td><td>scope-based</td>
+      <td>Full Zoho One rollout with deep customisation.</td>
+      <td>Unlimited Zoho modules · Unlimited users · Deluge scripting &amp; integrations · Multi-source data migration · Quarterly health checks · Priority support SLA</td>
+    </tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Customer Reviews</h2>
+  <div class="review-block">
+    <div class="stars">★★★★★</div>
+    <div class="reviewer">Karan Mehra — CFO, BrightLeaf Foods</div>
+    <div class="quote">"Savitur took us from a Tally + Excel chaos to a clean Zoho Books + CRM stack in five weeks. Our monthly close is now half a day instead of a week."</div>
+  </div>
+  <div class="review-block">
+    <div class="stars">★★★★★</div>
+    <div class="reviewer">Anjali Nair — Head of Operations, Quill &amp; Co.</div>
+    <div class="quote">"The team understood our workflows before they touched a single setting. The custom blueprint they built has paid for itself in the first quarter alone."</div>
+  </div>
+  <div class="review-block">
+    <div class="stars">★★★★☆</div>
+    <div class="reviewer">Ravi Subramanian — Founder, ThreeDot Studios</div>
+    <div class="quote">"Solid implementation and even better post-go-live support. They actually answer when we call — which is rarer than it should be."</div>
+  </div>
+  <div class="review-block">
+    <div class="stars">★★★★★</div>
+    <div class="reviewer">Megha Iyer — Finance Manager, NorthGrid Logistics</div>
+    <div class="quote">"We migrated four years of data with zero loss. The reconciliation phase was painless and the GST setup was bang on."</div>
+  </div>
+
+  <div class="cta-box">
+    <h3>Ready to get started with Zoho Tech Partner?</h3>
+    <p>Book a 30-minute walkthrough with our product team and see how Zoho Tech Partner fits your business.</p>
+    <span class="cta-btn">Request a demo → /contact-us</span>
+  </div>
+</div>
+
+<!-- ==================== SECTION 5.3: HOSTOPS ==================== -->
+<div class="section" id="hostops">
+  <h1 class="page-title">5.3 HostOps (Product)</h1>
+  <div class="url-badge">URL: /hostops</div>
+
+  <h2 class="section-heading">Hero Section</h2>
+  <div class="image-ref">/images/static/banners/business-consulting-web-banner.jpg</div>
+  <p><strong>HostOps</strong></p>
+  <p>Managed hosting and infrastructure operations — without the late-night pages.</p>
+  <p>From cloud server provisioning to backups, security patching, monitoring and incident response, HostOps takes the operational burden of running production infrastructure off your plate.</p>
+
+  <h2 class="section-heading">Properties</h2>
+  <table class="props-table">
+    <tr><td>Uptime SLA</td><td>99.95%</td></tr>
+    <tr><td>Response Time</td><td>&lt; 15 min</td></tr>
+    <tr><td>Cloud Partners</td><td>AWS · GCP · Azure</td></tr>
+    <tr><td>Workloads Run</td><td>300+</td></tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Features</h2>
+  <table class="card-grid">
+    <tr><th>Feature</th><th>Description</th></tr>
+    <tr><td>24×7 Monitoring</td><td>Around-the-clock monitoring of servers, databases, queues and applications with proactive alerting.</td></tr>
+    <tr><td>Automated Backups</td><td>Daily encrypted backups with point-in-time recovery and tested restoration drills every quarter.</td></tr>
+    <tr><td>Security Patching</td><td>OS and runtime patching on a defined cadence, with emergency patches deployed within agreed windows.</td></tr>
+    <tr><td>Incident Response</td><td>Defined runbooks, on-call rotation and post-incident reviews — so problems become better systems.</td></tr>
+    <tr><td>Cost Optimisation</td><td>Right-sizing, reserved-instance planning, and spend reviews that quietly trim 20–40% off cloud bills.</td></tr>
+    <tr><td>Compliance Ready</td><td>Audit-friendly logging, access controls, and documentation aligned with SOC 2 and ISO 27001 expectations.</td></tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Pricing Plans</h2>
+  <table class="plan-table">
+    <tr><th>Plan</th><th>Price</th><th>Cadence</th><th>Description</th><th>Includes</th></tr>
+    <tr>
+      <td>Essentials</td><td>₹18,000</td><td>/month</td>
+      <td>Single-server workloads with standard ops.</td>
+      <td>Up to 2 production servers · Daily backups · Business-hours monitoring · Monthly health report · Email support</td>
+    </tr>
+    <tr class="highlight-plan">
+      <td><strong>Standard ★ Most Popular</strong></td><td><strong>₹45,000</strong></td><td>/month</td>
+      <td>Mid-sized stacks with stronger SLAs.</td>
+      <td>Up to 8 servers / containers · Hourly backup snapshots · 24×7 monitoring · Patch management · On-call response · Slack support channel</td>
+    </tr>
+    <tr>
+      <td>Enterprise</td><td>Custom</td><td>/month</td>
+      <td>Multi-region production-grade ops.</td>
+      <td>Unlimited workloads · Multi-region failover · Dedicated SRE · Quarterly DR drills · Compliance reporting · Custom SLA</td>
+    </tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Customer Reviews</h2>
+  <div class="review-block">
+    <div class="stars">★★★★★</div>
+    <div class="reviewer">Sameer Khanna — CTO, PaisaPath Fintech</div>
+    <div class="quote">"We moved off a self-managed setup that was eating our engineering time. Within two weeks HostOps had everything monitored, patched, and quietly humming."</div>
+  </div>
+  <div class="review-block">
+    <div class="stars">★★★★★</div>
+    <div class="reviewer">Divya Rao — Engineering Lead, MealKit Direct</div>
+    <div class="quote">"The on-call response is the real differentiator. They caught a memory leak at 3am we wouldn't have spotted until the morning."</div>
+  </div>
+  <div class="review-block">
+    <div class="stars">★★★★☆</div>
+    <div class="reviewer">Arjun Pillai — Founder, Trailheads</div>
+    <div class="quote">"Their cost-optimisation review trimmed our AWS bill by 32% in the first month. The savings paid for the contract twice over."</div>
+  </div>
+  <div class="review-block">
+    <div class="stars">★★★★★</div>
+    <div class="reviewer">Naina Bhatia — Head of Tech, Lumen Studios</div>
+    <div class="quote">"Backups, restores, patching, monitoring — all of it just runs. We get a clean monthly report and our team can focus on the product."</div>
+  </div>
+
+  <div class="cta-box">
+    <h3>Ready to get started with HostOps?</h3>
+    <p>Book a 30-minute walkthrough with our product team and see how HostOps fits your business.</p>
+    <span class="cta-btn">Request a demo → /contact-us</span>
+  </div>
+</div>
+
+<!-- ==================== SECTION 5.4: CALLTECH ==================== -->
+<div class="section" id="calltech">
+  <h1 class="page-title">5.4 CallTech (Product)</h1>
+  <div class="url-badge">URL: /calltech</div>
+
+  <h2 class="section-heading">Hero Section</h2>
+  <div class="image-ref">/images/static/banners/contact-us-web-banner.jpg</div>
+  <p><strong>CallTech</strong></p>
+  <p>Cloud telephony and customer communication, built for growing teams.</p>
+  <p>CallTech brings calls, IVR, WhatsApp, SMS and call analytics into one platform — so every customer conversation is captured, routed and measured without juggling four different tools.</p>
+
+  <h2 class="section-heading">Properties</h2>
+  <table class="props-table">
+    <tr><td>Channels</td><td>Voice · WhatsApp · SMS</td></tr>
+    <tr><td>Concurrent Calls</td><td>Unlimited</td></tr>
+    <tr><td>Recording Storage</td><td>1 year</td></tr>
+    <tr><td>Avg. Setup Time</td><td>48 hours</td></tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Features</h2>
+  <table class="card-grid">
+    <tr><th>Feature</th><th>Description</th></tr>
+    <tr><td>Smart IVR</td><td>Drag-and-drop IVR builder with conditional routing, business-hours logic and skill-based agent assignment.</td></tr>
+    <tr><td>Call Recording</td><td>Every call recorded, transcribed and tagged — searchable across the team for QA and training.</td></tr>
+    <tr><td>WhatsApp Business</td><td>Send templated messages, automate replies and route conversations to the right agent in real time.</td></tr>
+    <tr><td>Live Analytics</td><td>Real-time dashboards covering call volume, abandon rate, agent occupancy and SLA performance.</td></tr>
+    <tr><td>CRM Sync</td><td>Two-way sync with Zoho, Salesforce, HubSpot and any tool with a REST API. Calls pop the right record automatically.</td></tr>
+    <tr><td>Compliance Ready</td><td>PCI-DSS-compatible call masking, consent capture and full audit logs — built in, not bolted on.</td></tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Pricing Plans</h2>
+  <table class="plan-table">
+    <tr><th>Plan</th><th>Price</th><th>Cadence</th><th>Description</th><th>Includes</th></tr>
+    <tr>
+      <td>Lite</td><td>₹999</td><td>/user/month</td>
+      <td>For small sales or support teams getting started.</td>
+      <td>Up to 5 users · Voice calls + IVR · Basic call recording (30 days) · Standard analytics · Email support</td>
+    </tr>
+    <tr class="highlight-plan">
+      <td><strong>Pro ★ Most Popular</strong></td><td><strong>₹2,499</strong></td><td>/user/month</td>
+      <td>Full multi-channel suite for growing teams.</td>
+      <td>Up to 50 users · Voice + WhatsApp + SMS · 1-year call recording · Live analytics dashboard · CRM sync (1 platform) · Priority chat support</td>
+    </tr>
+    <tr>
+      <td>Enterprise</td><td>Custom</td><td>/user/month</td>
+      <td>For contact centers and regulated industries.</td>
+      <td>Unlimited users · Multi-CRM sync · Custom retention policies · PCI-DSS compliance package · Dedicated success manager · 99.95% uptime SLA</td>
+    </tr>
+  </table>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Customer Reviews</h2>
+  <div class="review-block">
+    <div class="stars">★★★★★</div>
+    <div class="reviewer">Pooja Bhatt — Head of Customer Success, EduGrow Tutors</div>
+    <div class="quote">"The IVR builder alone saved us a week of vendor back-and-forth. We had it live in two days and our connect rate jumped 18%."</div>
+  </div>
+  <div class="review-block">
+    <div class="stars">★★★★★</div>
+    <div class="reviewer">Imran Sheikh — Sales Director, RealtyEdge</div>
+    <div class="quote">"Calls and WhatsApp in one inbox, with everything synced to our CRM. Our agents stopped switching tabs and our deal velocity went up."</div>
+  </div>
+  <div class="review-block">
+    <div class="stars">★★★★☆</div>
+    <div class="reviewer">Lakshmi Krishnan — Operations Lead, BluPay Cards</div>
+    <div class="quote">"PCI-grade call masking was the deal-breaker for us — CallTech had it ready out of the box. Onboarding was smoother than we expected."</div>
+  </div>
+  <div class="review-block">
+    <div class="stars">★★★★★</div>
+    <div class="reviewer">Vikram Joshi — Founder, FleetPilot</div>
+    <div class="quote">"Live analytics changed how we manage our team. We can see exactly where calls drop and fix the issue the same day."</div>
+  </div>
+
+  <div class="cta-box">
+    <h3>Ready to get started with CallTech?</h3>
+    <p>Book a 30-minute walkthrough with our product team and see how CallTech fits your business.</p>
+    <span class="cta-btn">Request a demo → /contact-us</span>
+  </div>
+</div>
+
+<!-- ==================== SECTION 6: BLOGS ==================== -->
+<div class="section" id="blogs">
+  <h1 class="page-title">6. Insights / Blog Listing Page</h1>
+  <div class="url-badge">URL: /blogs</div>
+
+  <h2 class="section-heading">Hero Section</h2>
+  <p>Heading: <strong>Insights &amp; Perspectives</strong></p>
+  <p>Sub-text: <em>Practical thinking from the Savitur team — on finance, technology, compliance and running a growing business.</em></p>
+
+  <h2 class="section-heading">UI Elements</h2>
+  <ul>
+    <li>Search bar: "Search articles…"</li>
+    <li>Category filter pills (from blog data)</li>
+    <li>Featured article card (first blog)</li>
+    <li>Remaining articles in 3-column grid</li>
+    <li>Falls back to dummy blog data if API unavailable</li>
+  </ul>
+
+  <h2 class="section-heading">Bottom CTA</h2>
+  <div class="highlight-box">
+    <strong>Want insights delivered to your inbox?</strong><br>
+    Subscribe to the Savitur newsletter for monthly articles on finance, compliance, technology, and business growth.<br>
+    <em>[Email input + Subscribe button]</em>
+  </div>
+</div>
+
+<!-- BLOG 1 -->
+<div class="section" id="blog-001">
+  <h1 class="page-title">6.1 Blog: Financial Technology</h1>
+  <div class="url-badge">URL: /blogs/financial-technology-rewriting-modern-finance</div>
+  <div class="blog-block">
+    <div class="blog-title">How Financial Technology Is Rewriting the Rules of Modern Finance</div>
+    <div class="blog-meta">Author: Savitur Editorial Team &nbsp;|&nbsp; Date: 12 March 2026 &nbsp;|&nbsp; Read time: 8 min &nbsp;|&nbsp; Categories: FinTech · Strategy</div>
+    <div class="image-ref">/images/static/banners/process-digitisation-web-banner.jpg</div> <em>(Cover image)</em>
+    <div class="blog-excerpt">From telegraph-era wire transfers to AI-driven robo-advisors, fintech has become the connective tissue of modern finance. Here's a clear-eyed look at what changed, what's next, and what it means for finance leaders today.</div>
+    <div class="blog-content">
+      <h2>The quiet revolution in financial services</h2>
+      <p>Financial technology — fintech, in shorthand — has gone from buzzword to backbone. What began as scattered experiments in digital payments and online trading is now the operating layer for almost every meaningful interaction between people, businesses, and money. Whether you are a CFO managing global treasury flows, a fund manager overseeing investor reporting, or a founder taking your first business banking steps, the platforms you depend on are fintech platforms — even if they don't advertise themselves that way.</p>
+      <p>The roots run far deeper than most people assume. The transatlantic telegraph cable of the late 1800s arguably kicked off the first wave of "fintech" by collapsing the time it took for financial information to cross continents. The U.S. Federal Reserve's launch of Fedwire in 1918 — moving funds between member banks over telegraph lines — was, in essence, the first electronic payments network. Diners Club's universal credit card in 1950, the world's first ATM in London in 1967, the founding of NASDAQ as the first electronic stock exchange in 1971, and the establishment of SWIFT in 1973: each of these was, at the time, a radical fintech moment.</p>
+      <h2>Why the last fifteen years are different</h2>
+      <p>What has changed since the late 2000s is the speed and depth of the disruption. Three forces converged. First, the 2008 financial crisis dented public trust in incumbent institutions and created daylight for technology-led alternatives. Second, the smartphone became near-universal, putting a programmable financial endpoint in every consumer's pocket. Third, the cloud collapsed the cost of building and scaling new financial products from millions of dollars and many years to thousands of dollars and a few months.</p>
+      <h2>Eight sectors every finance leader should understand</h2>
+      <ol>
+        <li>Banking and personal finance — neobanks, expense tracking, integrated financial planning</li>
+        <li>Payments and remittances — peer-to-peer, cross-border, B2B and merchant acceptance</li>
+        <li>Lending and credit — peer-to-peer, buy-now-pay-later, ML-driven underwriting for thin-file borrowers</li>
+        <li>Investment and wealth management — robo-advisory, fractional investing, alternative asset platforms</li>
+        <li>Capital markets technology — algorithmic trading, market data, execution analytics</li>
+        <li>Insurtech — telematics-driven motor insurance, parametric covers, digital claims</li>
+        <li>Blockchain and DeFi — stablecoins, tokenisation, on-chain settlement</li>
+        <li>Regulatory technology (RegTech) — AML, KYC, transaction monitoring, fraud analytics</li>
+      </ol>
+      <h2>Open banking and the API economy</h2>
+      <p>The deeper structural shift, often invisible to end users, is the standardisation of APIs across the financial system. The European Union's PSD2 directive in 2018 forced banks to expose customer data to authorised third parties with explicit consent. By 2024 the global open banking market was worth roughly $31.6 billion, with credible projections beyond $135 billion by 2030.</p>
+      <h2>What this means for Indian businesses</h2>
+      <p>India is one of the world's most active fintech markets. UPI alone now processes more transactions than several global card networks combined. The account aggregator framework, e-invoicing under GST, and TReDS for receivables financing have created a uniquely connected financial stack for businesses of every size.</p>
+      <h2>Where the puck is moving</h2>
+      <p>Three trends will define the next five years: embedded finance, AI-native financial workflows, and tokenisation of real-world assets.</p>
+      <h2>The Savitur view</h2>
+      <p>For most of our clients, the right response to fintech is neither "ignore it" nor "rebuild everything around it." It is to treat the fintech stack as a strategic supply chain — to be evaluated, governed, and continuously refreshed.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG 2 -->
+<div class="section" id="blog-002">
+  <h1 class="page-title">6.2 Blog: AIF / VC / PE Reporting</h1>
+  <div class="url-badge">URL: /blogs/timely-standard-reporting-aif-vc-pe</div>
+  <div class="blog-block">
+    <div class="blog-title">Why Timely and Standard Reporting Matters for AIFs, VCs and PE Firms</div>
+    <div class="blog-meta">Author: Savitur Editorial Team &nbsp;|&nbsp; Date: 28 February 2026 &nbsp;|&nbsp; Read time: 9 min &nbsp;|&nbsp; Categories: Fund Management · Reporting</div>
+    <div class="image-ref">/images/static/banners/fund-management-web-banner.jpg</div>
+    <div class="blog-excerpt">Investor confidence is built one report at a time. Inside the case for fast, comparable, audit-ready reporting across alternative investment funds — and what it takes to actually deliver it.</div>
+    <div class="blog-content">
+      <h2>Reporting is product</h2>
+      <p>For an alternative investment fund — whether an AIF under SEBI, a venture fund, a private equity vehicle, or a special-purpose co-investment SPV — investor reporting is not a back-office chore. It is the product. Limited partners experience the fund through its statements, capital calls, distribution notices, performance attributions, and quarterly investor letters.</p>
+      <h2>What "good" looks like</h2>
+      <p>Good reporting has five characteristics: accurate, timely, comparable, auditable, and explanatory.</p>
+      <h2>The reporting stack, end to end</h2>
+      <ul>
+        <li>Books and records</li><li>Valuation framework</li><li>Performance engine (IRR, TVPI, DPI, RVPI)</li>
+        <li>Waterfall calculator</li><li>Investor reporting layer</li><li>Regulatory reporting (AIFMD, SEBI, FATCA/CRS)</li>
+        <li>Document and audit trail</li>
+      </ul>
+      <h2>Common pitfalls — and how to avoid them</h2>
+      <p>Spreadsheet sprawl · Manual rekeying · Inconsistent valuation policies · Late capital account statements · Side-letter blindness.</p>
+      <h2>Regulatory context in 2026</h2>
+      <p>SEBI's AIF reporting circulars, FATCA and CRS information-exchange regimes, AIFMD reporting in Europe, and increasingly granular disclosure expectations from institutional LPs all push in the same direction.</p>
+      <h2>Where Savitur fits</h2>
+      <p>Our fund accounting practice serves AIFs, VCs, family offices, and PE houses with full-service operations — fund accounting, portfolio accounting, capital calls, distributions, NAV calculations, waterfall modelling, investor statements, and regulatory reporting.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG 3 -->
+<div class="section" id="blog-003">
+  <h1 class="page-title">6.3 Blog: Financial Audit</h1>
+  <div class="url-badge">URL: /blogs/inside-modern-financial-audit</div>
+  <div class="blog-block">
+    <div class="blog-title">Inside the Modern Financial Audit: A Practitioner's Guide</div>
+    <div class="blog-meta">Author: Savitur Editorial Team &nbsp;|&nbsp; Date: 14 February 2026 &nbsp;|&nbsp; Read time: 10 min &nbsp;|&nbsp; Categories: Audit · Compliance</div>
+    <div class="image-ref">/images/static/banners/business-consulting-web-banner.jpg</div>
+    <div class="blog-excerpt">Audit isn't a once-a-year ritual — it's a strategic check on the integrity of your financial reporting. We unpack the four phases, the standards, the opinions, and how technology is reshaping the auditor's toolkit.</div>
+    <div class="blog-content">
+      <h2>What an audit actually is</h2>
+      <p>A financial audit is an independent, evidence-driven examination of an organisation's financial statements, performed by qualified auditors against defined professional standards, ending in a formal opinion on whether those statements are presented fairly.</p>
+      <h2>The four phases of an audit engagement</h2>
+      <ol>
+        <li><strong>Phase 1: Planning and risk assessment</strong> — understand the business, identify higher-risk areas, set materiality thresholds, assess internal controls.</li>
+        <li><strong>Phase 2: Tests of controls and transactions</strong> — test whether controls operate as intended; sample and trace entries through to source documents.</li>
+        <li><strong>Phase 3: Substantive procedures and balance testing</strong> — bank confirmations, inventory observations, analytical procedures.</li>
+        <li><strong>Phase 4: Conclusion and reporting</strong> — form opinion, issue audit report and management letters.</li>
+      </ol>
+      <h2>The four kinds of audit opinion</h2>
+      <ul>
+        <li>Unqualified (clean) opinion — fairly presented in all material respects.</li>
+        <li>Qualified opinion — fairly presented, except for specific issues.</li>
+        <li>Adverse opinion — materially misleading on the whole.</li>
+        <li>Disclaimer of opinion — insufficient evidence to form an opinion.</li>
+      </ul>
+      <h2>The big shift: technology in the audit</h2>
+      <p>Data analytics tools now allow auditors to test 100% of journal entries. Machine learning models flag unusual patterns. The implication: audits can be deeper without being more disruptive — provided the company's data is clean and well structured.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG 4 -->
+<div class="section" id="blog-004">
+  <h1 class="page-title">6.4 Blog: The Modern Chartered Accountant</h1>
+  <div class="url-badge">URL: /blogs/modern-chartered-accountant-strategist</div>
+  <div class="blog-block">
+    <div class="blog-title">The Modern Chartered Accountant: More Strategist Than Scorekeeper</div>
+    <div class="blog-meta">Author: Savitur Editorial Team &nbsp;|&nbsp; Date: 30 January 2026 &nbsp;|&nbsp; Read time: 8 min &nbsp;|&nbsp; Categories: Chartered Accountancy · Advisory</div>
+    <div class="image-ref">/images/static/banners/about-us-web-banner.jpg</div>
+    <div class="blog-excerpt">The CA stereotype — heads-down, ledger-bound, year-end-only — is decades out of date. Today's chartered accountant is part advisor, part technologist, part strategist. Here's what that actually looks like.</div>
+    <div class="blog-content">
+      <h2>A profession with deep roots</h2>
+      <p>The chartered accountant designation is one of the oldest formalised professional credentials in the world. Its origins trace to Scotland in 1854. In India, the Institute of Chartered Accountants of India (ICAI) was established by the Chartered Accountants Act, 1949. ICAI has more than 414,000 active members.</p>
+      <h2>What CAs actually do today</h2>
+      <p>External auditor · Statutory and tax advisor · Strategic CFO or finance head · Fund manager or fund accountant · Forensic accountant · Transaction advisor · Business consultant · Public-sector professional</p>
+      <h2>The shift from technician to advisor</h2>
+      <p>The defining shift in the CA profession over the last fifteen years has been the move from technician to advisor. Compliance work is increasingly automated. The CA who treats technical tasks as table stakes — and competes on judgment, advice, and outcomes — is in a different market entirely.</p>
+      <h2>How Savitur thinks about the CA role</h2>
+      <p>Savitur Solutions is a CA-led consultancy. That choice is deliberate. The chartered accountant's training — disciplined, risk-aware, comfortable with ambiguity, fluent in the language of business — is the right foundation for the kind of work we do.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG 5 -->
+<div class="section" id="blog-005">
+  <h1 class="page-title">6.5 Blog: Finance Digitisation</h1>
+  <div class="url-badge">URL: /blogs/digitising-finance-function-leverage</div>
+  <div class="blog-block">
+    <div class="blog-title">Why Digitising Your Finance Function Is the Highest-Leverage Investment You Can Make</div>
+    <div class="blog-meta">Author: Savitur Editorial Team &nbsp;|&nbsp; Date: 15 January 2026 &nbsp;|&nbsp; Read time: 9 min &nbsp;|&nbsp; Categories: Digitisation · Technology</div>
+    <div class="image-ref">/images/static/services/process-digitisation-chart.jpg</div>
+    <div class="blog-excerpt">Manual finance is slow finance, and slow finance is expensive finance. A practical look at where finance digitisation pays off, what to digitise first, and how to avoid the most common implementation traps.</div>
+    <div class="blog-content">
+      <h2>The cost of doing finance the old way</h2>
+      <p>Manual finance is slow, error-prone, and expensive. Decisions are made on stale numbers. Cash forecasts miss. Compliance gaps emerge. Talented people spend their days chasing data instead of analysing it.</p>
+      <h2>What to digitise first</h2>
+      <ol>
+        <li>Step 1: Core accounting on the cloud (Zoho Books, Xero, QuickBooks, Tally, Odoo)</li>
+        <li>Step 2: Invoicing and AR automation</li>
+        <li>Step 3: Payables and expense management</li>
+        <li>Step 4: Reconciliations</li>
+        <li>Step 5: Reporting and FP&amp;A</li>
+        <li>Step 6: Specialised modules (payroll, statutory compliance, fund accounting, treasury)</li>
+      </ol>
+      <h2>Common traps to avoid</h2>
+      <p>Tool-first thinking · Skipping change management · Over-customisation · Dirty master data · Underinvesting in integrations</p>
+      <h2>How Savitur helps</h2>
+      <p>Our process digitisation practice helps clients across Zoho (full implementation and customisation), Xero, QuickBooks, Odoo, FundCount, and a range of HRMS and reconciliation platforms.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG 6 -->
+<div class="section" id="blog-006">
+  <h1 class="page-title">6.6 Blog: GST, TDS &amp; Tax Compliance</h1>
+  <div class="url-badge">URL: /blogs/gst-tds-tax-compliance-founders-guide</div>
+  <div class="blog-block">
+    <div class="blog-title">GST, TDS and Tax Compliance: A No-Nonsense Guide for Founders</div>
+    <div class="blog-meta">Author: Savitur Editorial Team &nbsp;|&nbsp; Date: 22 December 2025 &nbsp;|&nbsp; Read time: 8 min &nbsp;|&nbsp; Categories: Taxation · Compliance</div>
+    <div class="image-ref">/images/static/banners/business-consulting-web-banner.jpg</div>
+    <div class="blog-excerpt">Tax compliance is where most early-stage businesses quietly leak money and credibility. A founder-friendly walkthrough of GST, TDS, and the operating habits that keep you out of trouble — and out of penalty.</div>
+    <div class="blog-content">
+      <h2>GST in a paragraph</h2>
+      <p>India's Goods and Services Tax replaced a tangled web of central and state indirect taxes in July 2017. Registration is mandatory above prescribed turnover thresholds (₹20 lakh or ₹40 lakh, varying by state and supply type). The day-to-day rhythm involves issuing tax invoices, filing GSTR-1 and GSTR-3B, claiming input tax credit, and reconciling with GSTR-2B every month.</p>
+      <h2>The five GST mistakes we see most often</h2>
+      <ul>
+        <li>Wrong HSN or rate classification</li>
+        <li>Claiming ITC against invoices that don't appear in GSTR-2B</li>
+        <li>Missed reverse-charge accounting</li>
+        <li>Late return filing</li>
+        <li>Inadequate documentation</li>
+      </ul>
+      <h2>TDS in a paragraph</h2>
+      <p>Tax Deducted at Source applies to salaries, contractor/professional fees, rent, interest, commissions, dividends, and payments to non-residents. Deduct at the right rate when the payment is made or credited, deposit by the 7th of the following month, and file quarterly returns (Forms 24Q, 26Q, 27Q, 27EQ).</p>
+      <h2>Building the operating discipline</h2>
+      <p>Calendar everything · Reconcile monthly (books to GSTR-2B, payroll to TDS deposits) · Keep a clean documentation trail · Engage your CA early and often.</p>
+      <h2>How Savitur supports clients on tax</h2>
+      <p>Our compliance practice handles GST, TDS, and direct tax workflows for clients ranging from early-stage founders to multi-entity groups — setting up calendars, running monthly reconciliations, preparing and filing returns, and managing notices.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 7: CONTACT US ==================== -->
+<div class="section" id="contact-us">
+  <h1 class="page-title">7. Contact Us</h1>
+  <div class="url-badge">URL: /contact-us</div>
+
+  <h2 class="section-heading">Hero Banner</h2>
+  <div class="image-ref">/images/static/banners/contact-us-web-banner.jpg</div>
+  <div class="image-ref">/images/static/banners/contact-us-web-banner-mobile.jpg</div>
+  <p>Page heading: <strong>Contact Us</strong></p>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Page Intro</h2>
+  <p>Heading: <strong>Get in Touch</strong></p>
+  <p>Speak with our experts to discuss business consulting, fund management, HR solutions, or process digitisation. We're here to help you move forward with clarity and confidence.</p>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Contact Form (Left Column)</h2>
+  <p>Heading: <strong>Send us a message</strong></p>
+  <p>Sub-text: Share your requirement and our team will get back to you shortly.</p>
+  <div class="highlight-box">
+    <em>Contact form fields: Name · Email · Phone · Message · Submit button</em>
+  </div>
+
+  <hr class="divider">
+
+  <h2 class="section-heading">Contact Info (Right Column)</h2>
+  <div class="cta-box">
+    <h3>Let's Talk Business</h3>
+    <p>Whether you're a startup, SME, or growing enterprise, our team is ready to support your business with practical, execution-focused solutions.</p>
+    <p>📞 Phone: +91 92052 51387 / +91 98108 67321</p>
+    <p>✉️ Email: info@savitursolutions.com</p>
+    <p><em>Social media icons (LinkedIn, Twitter, Facebook, Instagram)</em></p>
+    <p style="font-size:9.5pt;margin-top:12px;">Our consultants work closely with teams to deliver financial clarity, regulatory confidence, and scalable operational systems.</p>
+  </div>
+</div>
+
+<!-- ==================== END ==================== -->
+<div class="section" style="page-break-before: always; padding: 60px; text-align: center; color: #888;">
+  <p style="font-size: 10pt;">End of Website Content Review Document</p>
+  <p style="font-size: 10pt;">Savitur Solutions — savitursolutions.com</p>
+  <p style="font-size: 10pt;">Prepared: April 2026</p>
+  <p style="font-size: 10pt; margin-top: 30px;">All image references shown in <span style="background:#fff8e1;border:1px solid #F2A007;padding:2px 8px;font-family:monospace;font-size:9pt;color:#7a5c00;">yellow boxes</span> are paths relative to the project root (/public directory).</p>
+</div>
+
+</body>
+</html>

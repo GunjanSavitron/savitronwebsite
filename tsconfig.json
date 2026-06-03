@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "types": ["node"],
+    "paths": {
+      "@amitkk/*": ["amitkk/*"],
+      "lib/*": ["lib/*"]
+    }
+  },
+
+  "include": [
+    "next-env.d.ts",
+    "pages/**/*.tsx",
+    "pages/**/*.ts",
+    "amitkk/**/*.tsx",
+    "amitkk/**/*.ts",
+    "lib/**/*.ts"
+  ],
+
+  "exclude": ["node_modules", ".next"]
+}

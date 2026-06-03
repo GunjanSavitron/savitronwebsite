@@ -1,0 +1,21 @@
+/* style > app.css */
+
+/* Tailwind base, components, utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom prebuilt classes */
+@layer base {
+  .fijb {
+    @apply flex items-center justify-between;
+  }
+
+  .row {
+    @apply grid grid-cols-12 gap-2 md:gap-4;
+  }
+
+  .btn {
+    @apply relative overflow-hidden uppercase z-50 inline-block text-center shadow-amit py-3 px-6 font-bold rounded-full;
+  }  
+}

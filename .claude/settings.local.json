@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.investopedia.com)",
+      "Bash(rm -rf .next)",
+      "Bash(npx next *)",
+      "Bash(dir c:\\\\Project-Saviturwebsite)",
+      "Read(//c/Project-Surionwebsite/app/products/**)",
+      "Read(//c/Project-Surionwebsite/app/industries/**)",
+      "Read(//c/Project-Surionwebsite/app/components/**)"
+    ],
+    "additionalDirectories": [
+      "c:\\Project-Saviturwebsite\\pages\\blogs"
+    ]
+  }
+}
