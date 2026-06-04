@@ -85,7 +85,7 @@ export default function OurServices() {
         tag="Our Practice"
         title="Consulting built from"
         titleAccent="three decades of corporate experience"
-        tagline="A finance-domain technology firm — combining 30+ years of real-world expertise with AI, automation and modern engineering."
+        tagline="AI and Business Performance Acceleration — combining domain expertise, full-stack AI and cloud engineering to deliver measurable outcomes across Business, Tech and Offshore."
         variant="dark"
         backgroundVideo="/video/SERVICES.mp4"
         ctas={[

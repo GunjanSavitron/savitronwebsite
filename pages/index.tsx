@@ -19,15 +19,15 @@ const industries = [
 ];
 
 const tickerItems = [
-  "Business Consulting",
-  "Tech Consulting",
+  "AI Performance Acceleration",
+  "Darwin Framework",
   "AI & ERP Transformation",
-  "Fund Accounting",
-  "Tax Advisory",
-  "CFO Advisory",
+  "Business Outcome Focus",
+  "Co-Design Partner",
+  "Full Stack AI & Cloud",
   "Product Engineering",
   "Agentic AI",
-  "Digital Transformation",
+  "Domain Expertise",
 ];
 
 const services = [
@@ -353,11 +353,11 @@ export default function HomePage() {
       {/* CTA BANNER */}
       <CTABanner
         tag="Let's talk"
-        title="Ready to take your business"
-        titleAccent="forward?"
-        body="Speak to our consultants and discover how we can support your growth journey."
-        primaryCta={{ label: "Engage Us", href: "/contact-us" }}
-        secondaryCta={{ label: "Explore Services", href: "/business-consulting" }}
+        title="Ready to build your"
+        titleAccent="AI advantage?"
+        body="We partner with you to design, build and scale an AI strategy that delivers measurable business outcomes."
+        primaryCta={{ label: "Book a Free AI Readiness Sprint", href: "/contact-us" }}
+        secondaryCta={{ label: "Explore Services", href: "/our-services" }}
       />
     </div>
   );

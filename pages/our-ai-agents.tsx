@@ -41,7 +41,7 @@ export default function OurAiAgents() {
         tag="AI Agents"
         title="Intelligent agents built for"
         titleAccent="finance & operations"
-        tagline="Savitron.ai's AI agents take the repetitive, error-prone work off your team — running the full lifecycle of a process autonomously, with compliance and ERP integration built in from day one."
+        tagline="Purpose-built AI agents that accelerate business performance — running the full lifecycle of finance and operations processes autonomously, with compliance and ERP integration built in from day one."
         variant="dark"
         backgroundImage="/images/static/banners/business-consulting-web-banner.jpg"
         ctas={[

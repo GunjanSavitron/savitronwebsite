@@ -103,7 +103,7 @@ export default function CareersPage() {
         tag="Careers"
         title="Join the team building"
         titleAccent="Savitron.ai."
-        tagline="We're a finance-domain technology firm. We hire people who care about craft, clarity and client outcomes."
+        tagline="We're an AI and Business Performance Accelerator. We hire people who care about craft, measurable outcomes and genuine client impact."
         variant="dark"
         align="left"
         size="md"

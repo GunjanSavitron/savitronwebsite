@@ -6,10 +6,11 @@ import CTABanner from "@amitkk/basic/static/CTABanner";
 import ScrollReveal from "@amitkk/basic/static/ScrollReveal";
 
 const values = [
-  { title: "Strategic Vision", desc: "We help you see beyond short-term constraints to identify transformative opportunities. By combining market intelligence with future-focused thinking, we help you anticipate trends, mitigate risks and position for sustained success." },
-  { title: "Proven Methodologies", desc: "Time-tested frameworks and data-driven approaches deliver consistent, measurable outcomes — from streamlining operations to market entry strategies." },
-  { title: "Collaborative Partnership", desc: "We act as an extension of your leadership team, building strong relationships rooted in trust, transparency and shared objectives." },
-  { title: "Outcome Ownership", desc: "We don't deliver slide decks. We stay on the hook for outcomes — from setup to closes to audit support." },
+  { title: "Co-Design Partner", desc: "We sit alongside your team to design the Data, IT and AI framework together — not hand over a blueprint and disappear. The outcome is co-owned, so it actually gets adopted." },
+  { title: "Domain Expertise Across Industries", desc: "Deep knowledge across finance, fund management, manufacturing, retail and 10+ other sectors. We bring practitioners who've worked inside these industries, not consultants who've read about them." },
+  { title: "Business Outcome Focus", desc: "Finance and business acumen to define ROI before the first line of code is written — and track it after go-live. Every technology decision is made through a business-outcome lens." },
+  { title: "Platform Agnostic", desc: "No vendor bias. We recommend what is genuinely right for your context — Zoho, AWS, Azure, GCP, Anthropic, OpenAI or on-prem — not what we are paid to push." },
+  { title: "Full Stack AI & Cloud", desc: "AWS · Azure · GCP · Anthropic · OpenAI · On-Prem — we cover the full spectrum of modern AI and cloud platforms so you are never constrained by our capabilities." },
 ];
 
 const milestones = [
@@ -24,9 +25,9 @@ export default function AboutUs() {
     <>
       <Hero
         tag="About Savitron.ai"
-        title="A finance-domain technology firm,"
-        titleAccent="built for ambitious operators."
-        tagline="Deep finance expertise, modern engineering. We build the systems and run the operations that let ambitious businesses scale."
+        title="AI and Business"
+        titleAccent="Performance Accelerator."
+        tagline="We partner with enterprises to design, build and scale AI strategies that deliver measurable business outcomes — not just technology deployments."
         variant="dark"
         backgroundVideo="/video/ABOUT%20US.mp4"
         ctas={[
@@ -42,10 +43,9 @@ export default function AboutUs() {
         side="left"
         body={
           <>
-            <p>At Savitron.ai, we pride ourselves on our team of professionals who bring over 30 years of invaluable corporate experience to the table. Each member is a seasoned expert in their respective field, with a proven track record of navigating the complexities of the corporate world.</p>
-            <p>We are a technology firm with deep roots in finance — combining 30+ years of domain expertise with modern AI, automation and platform engineering to help businesses run faster, raise smarter and scale without breaking.</p>
-            <p>Our vision is simple yet impactful — to empower businesses to not just adapt to change, but to lead it.</p>
-            <p>We don&apos;t believe in one-size-fits-all solutions. We develop customised strategies that align with your organisation&apos;s vision, culture and goals, ensuring results that are both impactful and sustainable.</p>
+            <p>Savitron.ai is an AI and Business Performance Accelerator. We help enterprises discover, adopt and scale AI in a way that is deliberate, phased and compounding — not rushed, not injected.</p>
+            <p>Our team combines 30+ years of finance and domain expertise with full-stack AI and cloud engineering. We close the gap between what businesses need and what technology can deliver — by co-designing solutions with our clients, not for them.</p>
+            <p>We are platform-agnostic and outcome-obsessed. Every engagement starts with identifying the top ROI problems, and every deliverable is measured against business performance — not just go-live dates.</p>
           </>
         }
       >
@@ -53,19 +53,19 @@ export default function AboutUs() {
           <ScrollReveal delay={120}>
             <div className="bg-navbar text-page rounded-2xl p-6 md:p-8 border border-gold/30 bg-dark-grain">
               <p className="section-tag-hero">Our Mission</p>
-              <p className="text-base md:text-lg leading-relaxed text-page/85 mt-2">Empower businesses to unlock their full potential through strategic innovation, operational excellence and sustainable growth.</p>
+              <p className="text-base md:text-lg leading-relaxed text-page/85 mt-2">Accelerate business performance through AI — helping enterprises discover the right use cases, adopt them with measurable ROI, and scale them into a lasting competitive advantage.</p>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <div className="bg-surface rounded-2xl p-6 md:p-8 border border-border">
               <p className="section-tag">Our Vision</p>
-              <p className="text-base md:text-lg leading-relaxed text-ink-muted mt-2">To empower businesses to not just adapt to change, but to lead it.</p>
+              <p className="text-base md:text-lg leading-relaxed text-ink-muted mt-2">Enterprise AI transformation must be grown, not injected — deliberate, phased and compounding. Like evolution.</p>
             </div>
           </ScrollReveal>
         </div>
       </SplitPanel>
 
-      <ValuesGrid tag="How we work" title="Experience with" titleAccent="conviction" items={values} columns={4} />
+      <ValuesGrid tag="What sets us apart" title="5 things that make" titleAccent="us different" items={values} columns={4} />
 
       <Timeline tag="Our story" title="The Savitron.ai" titleAccent="journey" events={milestones} />
 
