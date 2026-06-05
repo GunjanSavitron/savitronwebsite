@@ -25,9 +25,18 @@ export const modules = ["Blog","Page"];
 
 export const serviceLinks = [
   { label: "All Services", to: "/our-services", desc: "Explore the full Savitron.ai consulting practice in one place" },
-  { label: "Business Consulting", to: "/business-consulting", desc: "Startup to enterprise advisory — entity, finance, growth & compliance" },
-  { label: "Tech Consulting", to: "/tech-consulting", desc: "AI Solutions, process digitisation and platform modernisation" },
-  { label: "Offshore Consulting", to: "/offshore-consulting", desc: "GCC setup, finance outsourcing and regulatory reporting" },
+  { label: "Business Transformation through Technology", to: "/our-services", desc: "Strategy, finance leadership and operational excellence — powered by AI and modern platforms" },
+  { label: "AI Readiness Review", to: "/our-services", desc: "Structured assessment to identify your top AI use cases with measurable ROI" },
+  { label: "Use Case Identification", to: "/our-services", desc: "Domain-led discovery to prioritise the AI initiatives that move the needle" },
+  { label: "Offshore Operations Setup through Tech", to: "/offshore-consulting", desc: "GCC setup, finance outsourcing and India-based operations for global firms" },
+];
+
+export const solutionLinks = [
+  { label: "Our Solutions", to: "/our-solutions", desc: "Domain-specific AI and technology solutions for Finance, Hospitality and General Trade" },
+  { label: "Finance Solutions", to: "/our-solutions", desc: "AI-led automation for accounts payable, reconciliation, compliance and reporting" },
+  { label: "Hospitality Solutions", to: "/our-solutions", desc: "Revenue optimisation, guest experience and operational intelligence for hospitality" },
+  { label: "General Trade Solutions", to: "/our-solutions", desc: "Inventory, distribution, collections and field-force automation for trade businesses" },
+  { label: "Domain Consultants", to: "/our-solutions", desc: "Finance domain experts — Vivek Sharma and Hena Agrawal — available for your project" },
 ];
 
 export const productLinks = [

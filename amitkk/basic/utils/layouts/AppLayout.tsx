@@ -26,8 +26,8 @@ export default function AppLayout({ children, meta }: RootLayoutProps) {
       <Head>
         <title>{meta?.title || "Savitron.ai — AI and Business Performance Accelerator"}</title>
         <meta name="description" content={meta?.description || "Savitron.ai is an AI and Business Performance Accelerator. We partner with enterprises to design, build and scale AI strategies that deliver measurable business outcomes."} />
-        <link rel="icon" href="/images/logo-savitronai.jpeg" type="image/jpeg" />
-        <link rel="shortcut icon" href="/images/logo-savitronai.jpeg" type="image/jpeg" />
+        <link rel="icon" href="/images/logo-savitronai.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/images/logo-savitronai.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link

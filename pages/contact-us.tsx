@@ -64,7 +64,7 @@ export default function Contact() {
                     </span>
                     <div className="text-sm">
                       <p className="text-xs uppercase tracking-widest text-gold mb-0.5">Email</p>
-                      <a href="mailto:team@savitursolutions.com" className="hover:text-gold transition-colors">team@savitursolutions.com</a>
+                      <a href="mailto:team@savitron.ai" className="hover:text-gold transition-colors">team@savitron.ai</a>
                     </div>
                   </div>
 

@@ -20,8 +20,19 @@ type Member = {
 
 const team: Member[] = [
   {
+    name: "Vivek Sharma",
+    title: "Founder · Business & Growth",
+    group: "Leadership",
+    experience: "15+ years",
+    bio: "A business expert with 15+ years of experience across commercials, strategic finance, FP&A and process optimisation — driving efficiency for a diverse portfolio of clients. Previously with Samsung, Jindal, Minda and Mitsubishi.",
+    photo: "/images/static/team/vivek-sharma.jpg",
+    phone: "+917838136381",
+    email: "s.vivek@savitursolutions.com",
+    linkedin: "https://www.linkedin.com/in/vivek-sharma-25704867/",
+  },
+  {
     name: "Hena Agrawal",
-    title: "Co-Founder",
+    title: "Co-Founder · Financial Intelligence",
     group: "Leadership",
     experience: "15+ years",
     bio: "A visionary leader with over 15 years of experience in private equity fund management, financial accounting & reporting, strategic finance and business advisory — helping companies achieve exponential growth. Previously with Macquarie, Goldman Sachs, Vedanta and KPMG.",
@@ -32,7 +43,7 @@ const team: Member[] = [
   },
   {
     name: "Gunjan Bohra",
-    title: "Enterprise Architecture & AI Innovation Lead",
+    title: "Co-Founder · Architecture & AI",
     group: "Leadership",
     experience: "21+ years",
     bio: "21+ years of experience in Enterprise Architecture and AI-driven innovations, delivering IT products including CRM in Healthcare, Aviation and Shipping. Previously with NFS International and TS Infotech.",
@@ -40,23 +51,13 @@ const team: Member[] = [
   },
   {
     name: "Hemant Pandey",
-    title: "AI-Led Transformation & Consulting Lead",
+    title: "Co-Founder · AI Transformation",
     group: "Leadership",
     experience: "25+ years",
     bio: "25+ years of experience across IT and telecom, specialising in delivering business outcomes through AI-led transformation and consulting. Previously with Amazon, Capgemini, Nokia, DevRev.AI and Daewoo Telecom.",
     photo: "/images/static/team/Hemand_Pandey.jpeg",
   },
-  {
-    name: "Vivek Sharma",
-    title: "Co-Founder",
-    group: "Leadership",
-    experience: "15+ years",
-    bio: "A business expert with 15+ years of experience across commercials, strategic finance, FP&A and process optimisation — driving efficiency for a diverse portfolio of clients. Previously with Samsung, Jindal, Minda and Mitsubishi.",
-    photo: "/images/static/team/vivek-sharma.jpg",
-    phone: "+917838136381",
-    email: "s.vivek@savitursolutions.com",
-    linkedin: "https://www.linkedin.com/in/vivek-sharma-25704867/",
-  },
+  
 ];
 
 const groups = ["All", "Leadership", "Finance", "Consulting"] as const;

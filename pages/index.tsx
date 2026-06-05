@@ -3,7 +3,6 @@ import Link from "next/link";
 import ScrollReveal from "@amitkk/basic/static/ScrollReveal";
 import SectionTag from "@amitkk/basic/static/SectionTag";
 import CTABanner from "@amitkk/basic/static/CTABanner";
-import StatsStrip from "@amitkk/basic/static/StatsStrip";
 
 const industries = [
   { icon: "⚙", label: "Auto Ancillaries" },
@@ -12,7 +11,7 @@ const industries = [
   { icon: "🛒", label: "Retail — GT" },
   { icon: "💊", label: "Pharmaceuticals" },
   { icon: "🛍", label: "E-Commerce" },
-  { icon: "🚢", label: "Shipping" },
+  { icon: "🚢", label: "Logistics" },
   { icon: "🏭", label: "Manufacturing" },
   { icon: "🤝", label: "Service Industry" },
   { icon: "💎", label: "Customer Experience" },
@@ -31,10 +30,9 @@ const tickerItems = [
 ];
 
 const services = [
-  { id: "business-consulting", title: "Business Consulting", icon: "/images/icons/services/business-consulting.svg", desc: "Strategy, growth planning and operational excellence." },
-  { id: "tech-consulting", title: "Tech Consulting", icon: "/images/icons/services/process-digitisation.svg", desc: "AI solutions, automation and platform modernisation." },
-  { id: "offshore-consulting", title: "Offshore Consulting", icon: "/images/icons/services/fund-management.svg", desc: "GCC setup, finance outsourcing and regulatory reporting." },
+  { id: "our-services", title: "Business Transformation through Technology", icon: "/images/icons/services/business-consulting.svg", desc: "Strategy, finance leadership and operational excellence — powered by AI and modern platforms." },
   { id: "ai-solutions", title: "AI Solutions", icon: "/images/icons/services/hr-management.svg", desc: "Generative AI, predictive analytics and intelligent automation." },
+  { id: "offshore-consulting", title: "Offshore Operations Setup through Tech", icon: "/images/icons/services/fund-management.svg", desc: "GCC setup, finance outsourcing and India-based operations for global firms." },
 ];
 
 const problems = [
@@ -42,28 +40,28 @@ const problems = [
     category: "Platform Sprawl",
     problem: "The business runs on 6 different platforms — CRM, ERP, HRMS, billing, banking and analytics — none of which talk to each other. Every report is a manual stitch-up and every decision is made on stale data.",
     solution: "We co-work with your team to map the full platform landscape, design a unified data and integration architecture, and implement it on best-fit technology — Zoho, AWS, Microsoft or a custom stack — so your systems finally speak one language.",
-    href: "/tech-consulting",
-    cta: "Explore Tech Consulting",
+    href: "/our-services",
+    cta: "How we solve it",
   },
   {
     category: "Invisible ROI",
     problem: "Tech budgets keep growing but leadership can't connect the spend to a business outcome. Projects get delivered, dashboards go live, and six months later no one can say whether it was worth it.",
     solution: "Our finance experts define measurable ROI targets before the first line of code is written — cost per transaction, close cycle days, headcount per revenue unit. Every build decision is made through that lens, and we track the numbers after go-live.",
-    href: "/business-consulting",
-    cta: "Explore Business Consulting",
+    href: "/our-services",
+    cta: "How we solve it",
   },
   {
     category: "Build vs. Buy",
     problem: "The team spends months debating whether to build a custom solution or buy a SaaS product — and ends up doing both badly. Customised off-the-shelf tools that don't fit, or bespoke builds that nobody maintains.",
     solution: "We bring domain consultants and technology architects into the same room to run a structured build-vs-buy analysis — factoring in total cost of ownership, integration complexity, vendor lock-in and your team's ability to operate it long-term. You get a defensible decision, not a guess.",
-    href: "/tech-consulting",
-    cta: "Talk to our architects",
+    href: "/our-services",
+    cta: "Talk to our team",
   },
   {
     category: "Fragmented Data",
     problem: "Finance data is in Tally. Operations data is in Excel. Customer data is in the CRM. Each source tells a different story and reconciling them for a board pack takes a week every month.",
     solution: "We design and implement a centralised data layer — a cloud data lake on AWS, Azure or GCP — that pulls from every source, normalises the schema and makes clean, consistent data available to your analytics, AI and reporting tools in real time.",
-    href: "/tech-consulting",
+    href: "/our-services",
     cta: "See how we build it",
   },
 ];
@@ -86,8 +84,8 @@ const whyChooseUs = [
     icon: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7",
   },
   {
-    title: "Best-in-Class Technology Partners",
-    desc: "We are certified partners with Zoho, AWS, Microsoft, OpenAI and Anthropic — giving you access to the best platforms without the overhead of managing multiple vendor relationships yourself.",
+    title: "Deep Technology Competence",
+    desc: "We have hands-on competence across AWS, Zoho, Microsoft Azure, OpenAI and Anthropic — giving you access to the best platforms without the overhead of managing multiple vendor relationships yourself.",
     icon: "M13 10V3L4 14h7v7l9-11h-7z",
   },
   {
@@ -270,19 +268,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* STATS */}
-      <StatsStrip
-        tag="Track record"
-        title="Numbers that"
-        titleAccent="speak"
-        variant="dark"
-        items={[
-          { value: "30+", label: "Years of Experience" },
-          { value: "20+", label: "Clients Served" },
-          { value: "1", label: "Location — Gurugram, India" },
-        ]}
-      />
 
       {/* WHY CHOOSE US */}
       <section className="bg-page bg-warm-grain py-14 md:py-20">

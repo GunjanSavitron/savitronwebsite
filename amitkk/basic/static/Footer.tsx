@@ -5,19 +5,18 @@ import Image from "next/image";
 
 const Footer = () => {
   const servicesCol = [
-    { name: "Business Consulting", url: "/business-consulting" },
-    { name: "Tech Consulting", url: "/tech-consulting" },
-    { name: "Offshore Consulting", url: "/offshore-consulting" },
+    { name: "All Services", url: "/our-services" },
+    { name: "Business Transformation through Tech", url: "/our-services" },
     { name: "AI Solutions", url: "/ai-solutions" },
+    { name: "Offshore Operations Setup", url: "/offshore-consulting" },
   ];
 
   const productsCol = [
-    { name: "All Products", url: "/our-products" },
+    { name: "Our Solutions", url: "/our-solutions" },
     { name: "Skimaa", url: "/skimaa" },
     { name: "Zoho Tech Partner", url: "/zoho-tech-partner" },
     { name: "HostOps", url: "/hostops" },
     { name: "eTCR", url: "/etcr" },
-    { name: "AI Agents", url: "/our-ai-agents" },
     { name: "Savi-AP", url: "/savi-ap" },
   ];
 
@@ -37,7 +36,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 md:pb-14">
           <div className="md:col-span-4 flex flex-col items-start text-left">
             <Link href="/">
-              <img src="/images/logo-savitronai.jpeg" alt="Savitron.ai" className="h-20 w-auto mb-4 cursor-pointer" />
+              <img src="/images/logo-savitronai.svg" alt="Savitron.ai" className="h-20 w-auto mb-4 cursor-pointer" />
             </Link>
             <p className="text-sm leading-relaxed text-[#CCCCCC]/85 mb-5 max-w-sm">
               Savitron.ai is your trusted partner for strategic consulting, financial leadership, and operational excellence.
@@ -59,7 +58,7 @@ const Footer = () => {
           </div>
 
           <div className="md:col-span-2">
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-gold mb-4">Products</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-gold mb-4">Solutions</h4>
             <ul className="space-y-2.5">
               {productsCol.map((l) => (
                 <li key={l.url}>
@@ -97,7 +96,7 @@ const Footer = () => {
                 <span className="flex-shrink-0">
                   <Image src="/images/icons/contact/mail-white.svg" alt="Email" width={14} height={16} />
                 </span>
-                <Link href="mailto:team@savitursolutions.com" className="hover:text-gold-light transition-colors">team@savitursolutions.com</Link>
+                <Link href="mailto:team@savitron.ai" className="hover:text-gold-light transition-colors">team@savitron.ai</Link>
               </p>
               <p className="flex items-center gap-2 text-[#CCCCCC]/85">
                 <span className="flex-shrink-0">

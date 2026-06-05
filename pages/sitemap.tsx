@@ -15,6 +15,7 @@ const pages = [
   { name: "HR Management", url: "/hr-management" },
   { name: "Process Digitisation", url: "/process-digitisation" },
   { name: "Financial Services Offshore", url: "/financial-services-offshore" },
+  { name: "Our Solutions", url: "/our-solutions" },
   { name: "Our Products", url: "/our-products" },
   { name: "Skimaa", url: "/skimaa" },
   { name: "Zoho Tech Partner", url: "/zoho-tech-partner" },

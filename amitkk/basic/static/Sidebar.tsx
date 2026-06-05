@@ -30,7 +30,7 @@ export function Sidebar({ isOpen, onClose, navItems }: SidebarProps) {
       <Box className="flex flex-col h-full px-3" style={{ width: 360 }}>
         <Box className="flex items-center justify-center p-3" sx={{ borderBottom: `1px solid ${FAINT_BORDER}` }}>
           <Link href="/" passHref>
-            <Box component="img" src="/images/logo-savitronai.jpeg" alt="Savitron.ai" style={{ height: 40, width: "auto" }} />
+            <Box component="img" src="/images/logo-savitronai.svg" alt="Savitron.ai" style={{ height: 40, width: "auto" }} />
           </Link>
         </Box>
         <Box sx={{ flexGrow: 1, overflowY: "auto" }}>

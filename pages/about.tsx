@@ -53,13 +53,13 @@ export default function AboutUs() {
           <ScrollReveal delay={120}>
             <div className="bg-navbar text-page rounded-2xl p-6 md:p-8 border border-gold/30 bg-dark-grain">
               <p className="section-tag-hero">Our Mission</p>
-              <p className="text-base md:text-lg leading-relaxed text-page/85 mt-2">Accelerate business performance through AI — helping enterprises discover the right use cases, adopt them with measurable ROI, and scale them into a lasting competitive advantage.</p>
+              <p className="text-base md:text-lg leading-relaxed text-page/85 mt-2">We guide enterprises through every phase of AI transformation — helping them discover the right use cases, build with confidence, and evolve into AI-native organisations — making AI adoption accessible and practical for every enterprise, regardless of size.</p>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <div className="bg-surface rounded-2xl p-6 md:p-8 border border-border">
               <p className="section-tag">Our Vision</p>
-              <p className="text-base md:text-lg leading-relaxed text-ink-muted mt-2">Enterprise AI transformation must be grown, not injected — deliberate, phased and compounding. Like evolution.</p>
+              <p className="text-base md:text-lg leading-relaxed text-ink-muted mt-2">To transform every enterprise through AI-led technology — deliberately, in phases, and built to last.</p>
             </div>
           </ScrollReveal>
         </div>

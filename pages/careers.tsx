@@ -5,64 +5,14 @@ import CTABanner from "@amitkk/basic/static/CTABanner";
 
 const CAREERS_EMAIL = "careers@savitursolutions.com";
 
-const openings = [
-  {
-    title: "Finance Domain Expert — Audit & Assurance",
-    type: "Full-time",
-    location: "Gurugram, India",
-    dept: "Audit",
-    desc: "Lead statutory, internal and tax audits for SME and mid-market clients. You'll own audit planning, fieldwork, finalisation and client conversations end-to-end.",
-    skills: ["Finance Domain · 4-8 yrs", "Ind AS / IFRS", "Statutory & Tax Audit", "Client Management"],
-  },
-  {
-    title: "Fund Accountant — Investment Operations",
-    type: "Full-time",
-    location: "Gurugram / Remote",
-    dept: "Fund Management",
-    desc: "Run NAV calculation, waterfall and carry computations, capital calls, distributions and investor reporting for PE/VC funds, FoF and SPVs.",
-    skills: ["CFA / MBA Finance / Finance Domain", "Fund Accounting · 2-5 yrs", "FundCount / NAV Tools", "US GAAP / IFRS"],
-  },
-  {
-    title: "FP&A Analyst — Business Consulting",
-    type: "Full-time",
-    location: "Gurugram, India",
-    dept: "Consulting",
-    desc: "Build financial models, rolling forecasts, driver-based plans and MIS dashboards for founder-led businesses. Partner directly with client CFOs and CEOs.",
-    skills: ["MBA Finance / Finance Domain · 2-4 yrs", "Advanced Excel / Power BI", "Financial Modelling", "MIS & KPIs"],
-  },
-  {
-    title: "Tax & Compliance Manager",
-    type: "Full-time",
-    location: "Gurugram, India",
-    dept: "Tax",
-    desc: "Own GST, TDS, direct tax, ROC and FEMA compliance calendars for a portfolio of clients. Handle assessments, litigation support and proactive advisory.",
-    skills: ["Finance Domain · 3-6 yrs", "GST · Direct Tax", "FEMA / RBI Filings", "Litigation Support"],
-  },
-  {
-    title: "AI Solutions Engineer — Skimaa & Product Group",
-    type: "Full-time",
-    location: "Remote / India",
-    dept: "Product Engineering",
-    desc: "Ship production-grade AI features into our reconciliation and finance-automation products. RAG pipelines, document intelligence and matching engines.",
-    skills: ["Python · 3-6 yrs", "LangChain / LLMs", "ML Ops · Vector DBs", "Postgres / MongoDB"],
-  },
-  {
-    title: "Process Digitisation Consultant",
-    type: "Full-time",
-    location: "Gurugram (Travel required)",
-    dept: "Tech Consulting",
-    desc: "Translate finance and operations workflows into digital systems — Zoho, RPA, custom apps. Run discovery, scoping, design and rollout for clients.",
-    skills: ["B.Tech / MBA · 3-7 yrs", "Zoho One / RPA", "Process Mapping", "Stakeholder Management"],
-  },
-  {
-    title: "Senior Business Consultant — Founder-Led Companies",
-    type: "Full-time",
-    location: "Gurugram, India",
-    dept: "Consulting",
-    desc: "Act as a fractional CFO and growth partner for early- and growth-stage businesses. Strategy, fundraising readiness, board reporting and unit economics.",
-    skills: ["MBA / Finance Domain · 6-10 yrs", "CFO / FP&A Background", "Fundraising Support", "Board Communication"],
-  },
-];
+const openings: {
+  title: string;
+  type: string;
+  location: string;
+  dept: string;
+  desc: string;
+  skills: string[];
+}[] = [];
 
 const perks = [
   {
@@ -169,7 +119,7 @@ export default function CareersPage() {
               <div className="divider-gold" />
             </ScrollReveal>
             <ScrollReveal delay={200}>
-              <p className="text-sm md:text-base text-ink-muted max-w-2xl mx-auto">{openings.length} roles open across audit, fund operations, consulting and the product group.</p>
+              <p className="text-sm md:text-base text-ink-muted max-w-2xl mx-auto">We&apos;re building the team. New roles will be posted here — check back soon or send us your CV below.</p>
             </ScrollReveal>
           </div>
 
@@ -213,7 +163,7 @@ export default function CareersPage() {
                 <SectionTag>Open application</SectionTag>
                 <h3 className="font-heading text-xl md:text-2xl font-semibold text-ink mb-2">Don&apos;t see a role that fits?</h3>
                 <p className="text-sm md:text-base text-ink-muted mb-5">
-                  We&apos;re always looking for exceptional Chartered Accountants, fund accountants, consultants and product engineers. If you&apos;d like to work with us, drop your CV — we read every application.
+                  We&apos;re always looking for exceptional people — AI engineers, domain experts, consultants and product builders. If you&apos;d like to work with us, drop your CV — we read every application.
                 </p>
                 <a href={applyHref()} className="btn-outline">
                   Send Us Your CV<span aria-hidden>→</span>

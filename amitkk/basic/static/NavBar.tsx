@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { serviceLinks, productLinks, aiAgentLinks } from "../utils/config";
+import { serviceLinks, solutionLinks } from "../utils/config";
 import { Sidebar } from "./Sidebar";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import BusinessCenterOutlinedIcon from "@mui/icons-material/BusinessCenterOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
-import SmartToyOutlinedIcon from "@mui/icons-material/SmartToyOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
@@ -22,8 +21,7 @@ export const navItems: NavItem[] = [
   { label: "Home", to: "/", Icon: HomeIcon },
   { label: "About", to: "/about", Icon: InfoOutlinedIcon },
   { label: "Services", type: "dropdown", Icon: BusinessCenterOutlinedIcon, dropdown: serviceLinks },
-  { label: "Products", type: "dropdown", Icon: Inventory2OutlinedIcon, dropdown: productLinks },
-  { label: "AI Agents", type: "dropdown", Icon: SmartToyOutlinedIcon, dropdown: aiAgentLinks },
+  { label: "Our Solutions", type: "dropdown", Icon: Inventory2OutlinedIcon, dropdown: solutionLinks },
   { label: "Team", to: "/our-team", Icon: GroupsOutlinedIcon },
   { label: "Careers", to: "/careers", Icon: WorkOutlineOutlinedIcon },
   { label: "Insights", to: "/blogs", Icon: ArticleOutlinedIcon },
@@ -41,8 +39,7 @@ const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
-  const [productOpen, setProductOpen] = useState(false);
-  const [aiAgentOpen, setAiAgentOpen] = useState(false);
+  const [solutionOpen, setSolutionOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -60,7 +57,7 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="hidden lg:flex items-center justify-between gap-6 h-20">
           <Link href="/" className="flex-shrink-0">
-            <img src="/images/logo-savitronai.jpeg" alt="Savitron.ai" className="h-12 lg:h-14 w-auto" />
+            <img src="/images/logo-savitronai.svg" alt="Savitron.ai" className="h-12 lg:h-14 w-auto" />
           </Link>
           <div className="flex items-center gap-5 xl:gap-7">
             <Link href="/" className={`${linkBase} ${pathname === "/" ? linkActive : ""}`}>Home</Link>
@@ -88,44 +85,22 @@ const NavBar = () => {
               )}
             </div>
 
-            <div className="relative" onMouseEnter={() => setProductOpen(true)} onMouseLeave={() => setProductOpen(false)}>
-              <button className={`${linkBase}`}>Our Products</button>
-              {productOpen && (
+            <div className="relative" onMouseEnter={() => setSolutionOpen(true)} onMouseLeave={() => setSolutionOpen(false)}>
+              <button className={`${linkBase}`}>Our Solutions</button>
+              {solutionOpen && (
                 <div className="absolute right-0 top-full w-[560px] bg-navbar border border-gold/25 rounded-xl shadow-xl p-4 grid grid-cols-2 gap-3 text-page">
-                  {productLinks.map((p) => (
+                  {solutionLinks.map((s, idx) => (
                     <Link
-                      key={p.to}
-                      href={p.to}
+                      key={idx}
+                      href={s.to}
                       className={`rounded-lg transition p-3 ${
-                        p.to === "/our-products"
+                        idx === 0
                           ? "col-span-2 bg-gold/10 hover:bg-gold/15 border border-gold/40"
                           : "hover:bg-white/5"
                       }`}
                     >
-                      <div className="text-sm font-semibold text-page">{p.label}</div>
-                      <div className="text-xs text-page/65 mt-1">{p.desc}</div>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div className="relative" onMouseEnter={() => setAiAgentOpen(true)} onMouseLeave={() => setAiAgentOpen(false)}>
-              <button className={`${linkBase}`}>AI Agents</button>
-              {aiAgentOpen && (
-                <div className="absolute right-0 top-full w-[420px] bg-navbar border border-gold/25 rounded-xl shadow-xl p-4 grid grid-cols-1 gap-3 text-page">
-                  {aiAgentLinks.map((a) => (
-                    <Link
-                      key={a.to}
-                      href={a.to}
-                      className={`rounded-lg transition p-3 ${
-                        a.to === "/our-ai-agents"
-                          ? "bg-gold/10 hover:bg-gold/15 border border-gold/40"
-                          : "hover:bg-white/5"
-                      }`}
-                    >
-                      <div className="text-sm font-semibold text-page">{a.label}</div>
-                      <div className="text-xs text-page/65 mt-1">{a.desc}</div>
+                      <div className="text-sm font-semibold text-page">{s.label}</div>
+                      <div className="text-xs text-page/65 mt-1">{s.desc}</div>
                     </Link>
                   ))}
                 </div>
@@ -151,7 +126,7 @@ const NavBar = () => {
 
         <div className="lg:hidden flex justify-between items-center h-16">
           <Link href="/" className="flex-shrink-0">
-            <img src="/images/logo-savitronai.jpeg" alt="Savitron.ai" className="h-10 w-auto" />
+            <img src="/images/logo-savitronai.svg" alt="Savitron.ai" className="h-10 w-auto" />
           </Link>
           <button onClick={() => setOpen(!open)} aria-label="Toggle menu" className="text-gold">
             {open ? <CloseIcon /> : <MenuIcon />}
@@ -172,21 +147,11 @@ const NavBar = () => {
               </div>
             </details>
             <details className="w-full">
-              <summary className="text-page/85 hover:text-gold py-2 text-sm font-medium cursor-pointer">Our Products</summary>
+              <summary className="text-page/85 hover:text-gold py-2 text-sm font-medium cursor-pointer">Our Solutions</summary>
               <div className="pl-3 pb-2">
-                {productLinks.map((p) => (
-                  <Link key={p.to} href={p.to} onClick={() => setOpen(false)} className="block text-page/75 hover:text-gold py-1.5 text-sm">
-                    {p.label}
-                  </Link>
-                ))}
-              </div>
-            </details>
-            <details className="w-full">
-              <summary className="text-page/85 hover:text-gold py-2 text-sm font-medium cursor-pointer">AI Agents</summary>
-              <div className="pl-3 pb-2">
-                {aiAgentLinks.map((a) => (
-                  <Link key={a.to} href={a.to} onClick={() => setOpen(false)} className="block text-page/75 hover:text-gold py-1.5 text-sm">
-                    {a.label}
+                {solutionLinks.map((s, idx) => (
+                  <Link key={idx} href={s.to} onClick={() => setOpen(false)} className="block text-page/75 hover:text-gold py-1.5 text-sm">
+                    {s.label}
                   </Link>
                 ))}
               </div>
