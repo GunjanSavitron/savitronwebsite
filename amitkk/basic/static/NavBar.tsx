@@ -57,7 +57,7 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="hidden lg:flex items-center justify-between gap-6 h-20">
           <Link href="/" className="flex-shrink-0">
-            <img src="/images/logo-savitronai.svg" alt="Savitron.ai" className="h-12 lg:h-14 w-auto" />
+            <img src="/images/logo/savitron%20(1).svg" alt="Savitron.ai" className="w-40 lg:w-48 h-auto" />
           </Link>
           <div className="flex items-center gap-5 xl:gap-7">
             <Link href="/" className={`${linkBase} ${pathname === "/" ? linkActive : ""}`}>Home</Link>
@@ -126,7 +126,7 @@ const NavBar = () => {
 
         <div className="lg:hidden flex justify-between items-center h-16">
           <Link href="/" className="flex-shrink-0">
-            <img src="/images/logo-savitronai.svg" alt="Savitron.ai" className="h-10 w-auto" />
+            <img src="/images/logo/savitron%20(1).svg" alt="Savitron.ai" className="w-32 h-auto" />
           </Link>
           <button onClick={() => setOpen(!open)} aria-label="Toggle menu" className="text-gold">
             {open ? <CloseIcon /> : <MenuIcon />}

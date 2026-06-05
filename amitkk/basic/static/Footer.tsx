@@ -36,7 +36,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 md:pb-14">
           <div className="md:col-span-4 flex flex-col items-start text-left">
             <Link href="/">
-              <img src="/images/logo-savitronai.svg" alt="Savitron.ai" className="h-20 w-auto mb-4 cursor-pointer" />
+              <img src="/images/logo/savitron%20(3).png" alt="Savitron.ai" className="h-20 w-auto mb-4 cursor-pointer" />
             </Link>
             <p className="text-sm leading-relaxed text-[#CCCCCC]/85 mb-5 max-w-sm">
               Savitron.ai is your trusted partner for strategic consulting, financial leadership, and operational excellence.
