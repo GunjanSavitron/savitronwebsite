@@ -4,7 +4,7 @@ import Hero from "@amitkk/basic/static/Hero";
 import ScrollReveal from "@amitkk/basic/static/ScrollReveal";
 import CTABanner from "@amitkk/basic/static/CTABanner";
 import ValuesGrid from "@amitkk/basic/static/ValuesGrid";
-
+ 
 type Member = {
   name: string;
   title: string;
