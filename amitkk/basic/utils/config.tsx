@@ -24,11 +24,7 @@ export const config = (key?: string, defaultValue?: any) => {
 export const modules = ["Blog","Page"];
 
 export const serviceLinks = [
-  { label: "All Services", to: "/our-services", desc: "Explore the full Savitron.ai consulting practice in one place" },
-  { label: "Business Transformation through Technology", to: "/our-services", desc: "Strategy, finance leadership and operational excellence — powered by AI and modern platforms" },
-  { label: "AI Readiness Review", to: "/our-services", desc: "Structured assessment to identify your top AI use cases with measurable ROI" },
-  { label: "Use Case Identification", to: "/our-services", desc: "Domain-led discovery to prioritise the AI initiatives that move the needle" },
-  { label: "Offshore Operations Setup through Tech", to: "/offshore-consulting", desc: "GCC setup, finance outsourcing and India-based operations for global firms" },
+  { label: "AI Solutions", to: "/ai-solutions", desc: "Standalone AI agents and data modelling — invoice processing, reconciliation, intelligent automation" },
 ];
 
 export const solutionLinks = [

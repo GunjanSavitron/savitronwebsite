@@ -90,7 +90,6 @@ export default function OurSolutionsPage() {
         variant="dark"
         ctas={[
           { label: "Engage Us", href: "/contact-us" },
-          { label: "Our Services", href: "/our-services", variant: "outline" },
         ]}
       />
 
@@ -245,7 +244,6 @@ export default function OurSolutionsPage() {
         titleAccent="your domain solution?"
         body="Talk to our domain consultants — we'll map the right solution to your specific business challenges."
         primaryCta={{ label: "Engage Us", href: "/contact-us" }}
-        secondaryCta={{ label: "Our Services", href: "/our-services" }}
       />
     </>
   );

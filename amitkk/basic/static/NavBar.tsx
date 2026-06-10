@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { serviceLinks, solutionLinks } from "../utils/config";
+import { solutionLinks } from "../utils/config";
 import { Sidebar } from "./Sidebar";
 import HomeIcon from "@mui/icons-material/Home";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import BusinessCenterOutlinedIcon from "@mui/icons-material/BusinessCenterOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
+import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
@@ -19,9 +18,8 @@ export interface NavItem { label: string; to?: string; type?: string; Icon?: Rea
 
 export const navItems: NavItem[] = [
   { label: "Home", to: "/", Icon: HomeIcon },
-  { label: "About", to: "/about", Icon: InfoOutlinedIcon },
-  { label: "Services", type: "dropdown", Icon: BusinessCenterOutlinedIcon, dropdown: serviceLinks },
   { label: "Our Solutions", type: "dropdown", Icon: Inventory2OutlinedIcon, dropdown: solutionLinks },
+  { label: "Our Products", to: "/our-products", Icon: CategoryOutlinedIcon },
   { label: "Team", to: "/our-team", Icon: GroupsOutlinedIcon },
   { label: "Careers", to: "/careers", Icon: WorkOutlineOutlinedIcon },
   { label: "Insights", to: "/blogs", Icon: ArticleOutlinedIcon },
@@ -38,7 +36,6 @@ const NavBar = () => {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [serviceOpen, setServiceOpen] = useState(false);
   const [solutionOpen, setSolutionOpen] = useState(false);
 
   useEffect(() => {
@@ -61,29 +58,6 @@ const NavBar = () => {
           </Link>
           <div className="flex items-center gap-5 xl:gap-7">
             <Link href="/" className={`${linkBase} ${pathname === "/" ? linkActive : ""}`}>Home</Link>
-            <Link href="/about" className={`${linkBase} ${pathname === "/about" ? linkActive : ""}`}>About</Link>
-
-            <div className="relative" onMouseEnter={() => setServiceOpen(true)} onMouseLeave={() => setServiceOpen(false)}>
-              <button className={`${linkBase}`}>Services</button>
-              {serviceOpen && (
-                <div className="absolute right-0 top-full w-[560px] bg-navbar border border-gold/25 rounded-xl shadow-xl p-4 grid grid-cols-2 gap-3 text-page">
-                  {serviceLinks.map((s) => (
-                    <Link
-                      key={s.to}
-                      href={s.to}
-                      className={`rounded-lg transition p-3 ${
-                        s.to === "/our-services"
-                          ? "col-span-2 bg-gold/10 hover:bg-gold/15 border border-gold/40"
-                          : "hover:bg-white/5"
-                      }`}
-                    >
-                      <div className="text-sm font-semibold text-page">{s.label}</div>
-                      <div className="text-xs text-page/65 mt-1">{s.desc}</div>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
 
             <div className="relative" onMouseEnter={() => setSolutionOpen(true)} onMouseLeave={() => setSolutionOpen(false)}>
               <button className={`${linkBase}`}>Our Solutions</button>
@@ -107,6 +81,7 @@ const NavBar = () => {
               )}
             </div>
 
+            <Link href="/our-products" className={`${linkBase} ${pathname === "/our-products" ? linkActive : ""}`}>Our Products</Link>
             <Link href="/our-team" className={`${linkBase} ${pathname === "/our-team" ? linkActive : ""}`}>Our Team</Link>
             <Link href="/careers" className={`${linkBase} ${pathname === "/careers" ? linkActive : ""}`}>Careers</Link>
             <Link href="/blogs" className={`${linkBase} ${pathname === "/blogs" ? linkActive : ""}`}>Insights</Link>
@@ -135,17 +110,6 @@ const NavBar = () => {
         {open && (
           <div className="lg:hidden flex flex-col pb-4 border-t border-gold/15 mt-1 pt-3">
             <Link href="/" onClick={() => setOpen(false)} className="text-page/85 hover:text-gold py-2 text-sm font-medium">Home</Link>
-            <Link href="/about" onClick={() => setOpen(false)} className="text-page/85 hover:text-gold py-2 text-sm font-medium">About</Link>
-            <details className="w-full">
-              <summary className="text-page/85 hover:text-gold py-2 text-sm font-medium cursor-pointer">Services</summary>
-              <div className="pl-3 pb-2">
-                {serviceLinks.map((s) => (
-                  <Link key={s.to} href={s.to} onClick={() => setOpen(false)} className="block text-page/75 hover:text-gold py-1.5 text-sm">
-                    {s.label}
-                  </Link>
-                ))}
-              </div>
-            </details>
             <details className="w-full">
               <summary className="text-page/85 hover:text-gold py-2 text-sm font-medium cursor-pointer">Our Solutions</summary>
               <div className="pl-3 pb-2">
@@ -156,6 +120,7 @@ const NavBar = () => {
                 ))}
               </div>
             </details>
+            <Link href="/our-products" onClick={() => setOpen(false)} className="text-page/85 hover:text-gold py-2 text-sm font-medium">Our Products</Link>
             <Link href="/our-team" onClick={() => setOpen(false)} className="text-page/85 hover:text-gold py-2 text-sm font-medium">Our Team</Link>
             <Link href="/careers" onClick={() => setOpen(false)} className="text-page/85 hover:text-gold py-2 text-sm font-medium">Careers</Link>
             <Link href="/blogs" onClick={() => setOpen(false)} className="text-page/85 hover:text-gold py-2 text-sm font-medium">Insights</Link>

@@ -17,6 +17,85 @@ export interface DummyBlog {
 
 export const dummyBlogs: DummyBlog[] = [
   {
+    _id: "blog-007",
+    name: "Building AI Memory: Solving the Data Ingestion Problem",
+    url: "blogs/building-ai-memory-data-ingestion-problem",
+    cover: "/images/static/banners/process-digitisation-web-banner.jpg",
+    excerpt: "AI is only as intelligent as the data it can remember. But getting data into an AI memory system — cleanly, reliably, at scale — is the hardest unsolved problem in enterprise AI. Here's a practitioner's map of every approach, and how to choose.",
+    category: [
+      { _id: "cat-ai", name: "AI" },
+      { _id: "cat-data", name: "Data Engineering" },
+    ],
+    author: "Gunjan Bohra",
+    createdAt: "2026-06-10",
+    readTime: "12 min read",
+    content: `<h2>The problem nobody talks about</h2>
+<p>Everyone in enterprise AI talks about models — which LLM to use, how to fine-tune, what prompt engineering tricks to apply. Very few people talk about what happens before the model ever sees a query: how you get the right data, from the right sources, in the right shape, into the memory layer that makes an AI system actually useful. That gap — between the data that exists in your organisation and the data that an AI agent can reason over — is the ingestion problem, and it is arguably the most expensive unsolved challenge in production AI today.</p>
+<p>The consequences of getting it wrong are severe. An AI system that cannot ingest your ERP transactions cannot answer questions about your business. A knowledge base that is not refreshed when your policies change gives employees confidently wrong answers. A retrieval system built on poorly chunked documents surfaces fragments that make no sense in isolation. The ingestion layer is not a plumbing detail — it is the foundation on which every AI use case rests.</p>
+<p>This article maps the landscape: seven distinct ingestion approaches, their trade-offs, and a decision framework for choosing the right combination for your context.</p>
+
+<h2>Why ingestion is hard</h2>
+<p>Data in a real organisation is not waiting patiently in a single, well-labelled warehouse. It lives across dozens of systems — ERP, CRM, HRMS, project management tools, email, SharePoint, shared drives, WhatsApp groups, legacy databases, PDF archives, and a long tail of SaaS applications that were adopted department by department over the last decade. Each of these systems has its own schema, its own authentication model, its own rate limits, and its own cadence of change.</p>
+<p>The ingestion problem has three distinct sub-problems that must all be solved simultaneously. <strong>Connectivity</strong>: how do you reach each source reliably, authenticate, and retrieve data without breaking the source system? <strong>Transformation</strong>: how do you convert raw data — structured, semi-structured, and unstructured — into a form that an AI memory system can index and retrieve? <strong>Freshness</strong>: how do you ensure that the memory layer reflects the current state of the source, not a stale snapshot from six months ago?</p>
+<p>The seven approaches below each address these sub-problems differently, with different cost, latency, and complexity profiles.</p>
+
+<h2>Approach 1 — Traditional ETL pipelines</h2>
+<p>Extract, Transform, Load — the classic approach. A scheduled job extracts data from source systems, applies transformations (cleaning, normalising, joining), and loads the result into a destination store. Tools like Apache Airflow, Talend, Informatica, and AWS Glue have been the workhorses of enterprise data integration for two decades.</p>
+<p><strong>Strengths:</strong> Mature tooling, well-understood failure modes, good support for complex transformations, works well when the destination schema is stable.</p>
+<p><strong>Weaknesses:</strong> Batch-oriented — data freshness is limited by pipeline frequency. Brittle when source schemas change. Expensive to maintain as the number of sources grows. Not designed for the unstructured data (documents, emails, meeting notes) that AI memory systems need most.</p>
+<p><strong>When to use it:</strong> For structured, high-volume data from stable sources — financial transactions, CRM records, inventory — where near-real-time freshness is not required.</p>
+
+<h2>Approach 2 — ELT (Extract, Load, Transform)</h2>
+<p>A variant of ETL where raw data is loaded first into a cloud data warehouse (Snowflake, BigQuery, Redshift), then transformed in place using SQL or dbt. Tools like Fivetran and Airbyte have made the extract-and-load steps near-commoditised for hundreds of common connectors.</p>
+<p><strong>Strengths:</strong> Faster to stand up than custom ETL for common SaaS sources. Transformation logic lives in SQL, which is accessible to analysts. Raw data is preserved, making it easier to reprocess when downstream requirements change.</p>
+<p><strong>Weaknesses:</strong> Still batch-oriented. Connector coverage is good for common SaaS tools but thin for niche or internal systems. Transformation to AI-ready formats (embeddings, chunks) typically requires an additional step downstream. Costs can escalate as data volumes grow.</p>
+<p><strong>When to use it:</strong> As the first layer of a broader data architecture, especially when the organisation already has an analytics warehouse. Feed the warehouse with ELT, then layer AI-specific transformations on top.</p>
+
+<h2>Approach 3 — Native vendor connectors and platform integrations</h2>
+<p>Many modern AI platforms — vector databases, knowledge management tools, enterprise search systems — ship with pre-built connectors to popular sources: Notion, Confluence, Google Drive, SharePoint, Salesforce, HubSpot, Zendesk. The integration is configured via OAuth, and the platform handles polling, change detection, and re-indexing automatically.</p>
+<p><strong>Strengths:</strong> Fastest path to value for common enterprise sources. Maintenance burden is on the vendor, not your team. Often includes smart chunking and metadata extraction out of the box.</p>
+<p><strong>Weaknesses:</strong> Connector coverage rarely extends to custom or legacy systems. The platform's ingestion logic is a black box — you get limited control over chunking strategy, metadata enrichment, or transformation rules. Vendor lock-in risk is real when the ingestion layer is proprietary.</p>
+<p><strong>When to use it:</strong> For the long tail of common SaaS sources where speed-to-value matters and customisation needs are low. Pair with a more flexible approach for critical or high-complexity sources.</p>
+
+<h2>Approach 4 — Event-driven and streaming ingestion</h2>
+<p>Instead of polling sources on a schedule, event-driven ingestion reacts to changes as they happen. A transaction is committed to the ERP, a document is uploaded to SharePoint, a ticket is updated in your helpdesk — and the ingestion pipeline fires immediately. Tools like Apache Kafka, AWS Kinesis, Confluent, and change-data-capture (CDC) technologies like Debezium make this pattern feasible at scale.</p>
+<p><strong>Strengths:</strong> Near-real-time freshness — the AI memory reflects changes within seconds or minutes rather than hours. Reduces the reprocessing cost of large batch runs. Naturally composable with downstream AI pipelines (embed, chunk, upsert to vector store) that can be triggered per event.</p>
+<p><strong>Weaknesses:</strong> Significantly more complex to build and operate than batch approaches. Requires message brokers and stream processors that many organisations have not yet invested in. Failure handling — what happens when an event is dropped, duplicated, or arrives out of order — needs careful design.</p>
+<p><strong>When to use it:</strong> When freshness is a hard requirement — customer-facing AI assistants, real-time compliance monitoring, live financial dashboards — and the organisation has the engineering capacity to operate streaming infrastructure.</p>
+
+<h2>Approach 5 — Virtual and federated data graphs</h2>
+<p>Rather than copying data into a central store, federated approaches query sources in place at request time. A query planning layer — tools like Trino, Dremio, or a custom API gateway — routes sub-queries to the right source systems and assembles the result. The AI system never needs to ingest a full copy of the data; it only touches what it needs, when it needs it.</p>
+<p><strong>Strengths:</strong> Data is always fresh — the query hits the live source. No data duplication, which simplifies governance and reduces storage costs. Well-suited to regulated environments where copying sensitive data creates compliance risk.</p>
+<p><strong>Weaknesses:</strong> Query latency is limited by the slowest source. Source systems must support live queries, which not all legacy systems do. The query planning layer adds complexity. Not suitable for unstructured data that needs to be embedded and indexed for semantic search.</p>
+<p><strong>When to use it:</strong> For structured data queries in latency-tolerant applications where data sovereignty or governance constraints make copying impractical. Works well as a complement to a vectorised layer for unstructured content.</p>
+
+<h2>Approach 6 — LLM-powered extraction and enrichment</h2>
+<p>A newer approach that uses large language models to extract structured information from unstructured or semi-structured content — PDF contracts, email threads, meeting transcripts, scanned invoices — that traditional ETL cannot handle. The LLM reads the raw content, extracts entities, relationships, and key facts according to a schema you define, and outputs structured data that can be stored, indexed, and retrieved.</p>
+<p><strong>Strengths:</strong> Unlocks data sources that were previously inaccessible to automated pipelines. Can extract nuanced information — sentiment, intent, risk flags — that rule-based extractors miss. Flexible: the extraction schema can be updated without rewriting parsing logic.</p>
+<p><strong>Weaknesses:</strong> Costs money per token at scale. Extraction quality degrades on poorly formatted inputs. Hallucination risk — the LLM may confidently extract facts that are not present. Requires careful prompt engineering and output validation. Latency is higher than rule-based alternatives.</p>
+<p><strong>When to use it:</strong> For high-value unstructured sources where the cost of LLM-based extraction is justified by the value of the extracted information — legal contracts, audit reports, board minutes, research papers. Build validation and human review into the pipeline for critical data.</p>
+
+<h2>Approach 7 — MCP servers and LLM self-directed ingestion</h2>
+<p>The most recent development in the space. Model Context Protocol (MCP) is an open standard that allows AI agents to connect to tools and data sources through a standardised interface. An AI agent with access to an MCP server can, at query time, reach into the relevant source system — a database, a file store, an API — retrieve the specific data it needs, and incorporate it into its reasoning. The ingestion happens on-demand, guided by the agent's own judgment about what it needs.</p>
+<p><strong>Strengths:</strong> No upfront pipeline to build. The agent fetches exactly what it needs, when it needs it — no more, no less. Naturally handles diverse source types through the MCP abstraction layer. Aligns well with agentic architectures where the AI system can take multi-step actions.</p>
+<p><strong>Weaknesses:</strong> Highly experimental — MCP ecosystem maturity varies significantly across source types. The agent's judgment about what data it needs may be wrong, leading to incomplete context. Performance at scale is unproven. Security and access-control models for agent-directed data access are still evolving.</p>
+<p><strong>When to use it:</strong> In agentic applications where flexibility and low setup cost outweigh reliability requirements. Strong for internal tooling and prototyping. Approach with caution for production systems where consistency and auditability matter.</p>
+
+<h2>The decision framework: a layered hybrid approach</h2>
+<p>No single approach covers the full ingestion problem. The right architecture is almost always a layered hybrid, where different approaches handle different source types and freshness requirements.</p>
+<p>Start by classifying your sources across two dimensions: <strong>structure</strong> (fully structured, semi-structured, or unstructured) and <strong>freshness requirement</strong> (near-real-time, daily, or periodic is fine).</p>
+<p>Structured sources with low freshness requirements — financial transactions, CRM data, operational metrics — are best served by ELT pipelines with native connectors where available and custom connectors where not. These feed a central analytics layer that can also supply the AI memory system with processed, validated records.</p>
+<p>Structured sources with high freshness requirements — live inventory, customer support queues, fraud signals — warrant event-driven ingestion. Build CDC pipelines for databases and webhook listeners for SaaS tools.</p>
+<p>Unstructured sources — documents, emails, PDFs, transcripts — require a combination of LLM-powered extraction for high-value content and native connectors (SharePoint, Drive, Confluence) for lower-value bulk content. Chunk deliberately: sentence-level chunks for dense technical content, section-level chunks for narrative content, and preserve document hierarchy as metadata.</p>
+<p>For sources that are sensitive, regulated, or impractical to copy, use federated query where freshness allows, and consider MCP-based agent access for interactive retrieval workflows.</p>
+<p>Layer observability across everything. Track which sources are being ingested, at what freshness, with what error rate. The ingestion layer is where silent failures — a connector that stopped updating six weeks ago, a chunking bug that truncates the last paragraph of every document — are most dangerous and least visible.</p>
+
+<h2>What this means in practice</h2>
+<p>The companies that are winning with enterprise AI are not the ones with the best models. They are the ones that have solved the ingestion problem — that have a reliable, fresh, well-governed memory layer that their AI systems can actually reason over. That investment is invisible to end users. It does not appear in a demo. But it is the difference between an AI system that is impressive in a proof-of-concept and one that is trusted in production.</p>
+<p>At Savitron.ai, the ingestion layer is the first thing we design on any AI engagement. The model is the last. Getting the order right is what separates AI that compounds in value from AI that disappoints after the first sprint.</p>`,
+  },
+
+  {
     _id: "blog-001",
     name: "How Financial Technology Is Rewriting the Rules of Modern Finance",
     url: "blogs/financial-technology-rewriting-modern-finance",

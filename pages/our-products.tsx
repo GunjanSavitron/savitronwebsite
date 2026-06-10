@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Hero from "@amitkk/basic/static/Hero";
 import SectionTag from "@amitkk/basic/static/SectionTag";
 import ScrollReveal from "@amitkk/basic/static/ScrollReveal";
@@ -19,62 +18,32 @@ const products: Product[] = [
   {
     slug: "skimaa",
     name: "Skimaa",
-    tagline: "Automated reconciliation, controls and audit support for modern finance teams.",
+    tagline: "An AI-driven schemes computation engine, purpose-built for the way sales channels actually run.",
     category: "Finance Automation",
-    desc: "Skimaa cuts the grind out of month-end. It plugs into your ERP, banks, payment processors and marketplaces to reconcile millions of transactions, surface exceptions in real time and produce audit-ready trails — without spreadsheets.",
+    desc: "Ingest sales from partners, configure scheme logic once, and let Skimaa compute every qualifying pay-out — with a full audit trail and partner-facing transparency.",
     highlights: [
-      "Bank, ERP and payment-gateway reconciliation",
-      "Configurable matching rules with AI-assisted exception handling",
-      "Audit-ready trails, evidence and reports",
-      "SOC-2 friendly access controls",
+      "AI-driven scheme algorithms — slabs, growth, mix and bundled logic, computed in one engine",
+      "Built for the full channel — brands, distributors and dealers all plug into the same backbone",
+      "Settlement in days, not weeks — partners get paid faster, disputes drop, relationships stay healthy",
+      "Audit-ready by design — every computation logged with inputs, rule version and timestamp",
     ],
-    bestFor: "Finance controllers, internal audit teams, and CFOs running high-volume transaction businesses.",
-    href: "/skimaa",
-  },
-  {
-    slug: "zoho-tech-partner",
-    name: "Zoho Tech Partner",
-    tagline: "Implementation, customisation and managed support for the full Zoho One suite.",
-    category: "Business Platform",
-    desc: "As a Zoho Authorised Partner, we implement, customise and run Zoho One stacks for growing businesses — CRM, Books, People, Desk, Creator, Inventory, Analytics and more — all stitched into one operating system.",
-    highlights: [
-      "Zoho One end-to-end implementation",
-      "Custom apps and workflows on Zoho Creator",
-      "API integrations with banks, ERPs and third-party tools",
-      "Managed support, training and admin services",
-    ],
-    bestFor: "SMEs and scaling businesses that want a unified, cost-effective business platform.",
-    href: "/zoho-tech-partner",
+    bestFor: "Brands, distributors and sales channel managers running high-volume scheme payouts.",
+    href: "https://skimaa.savitursolutions.com/login",
   },
   {
     slug: "hostops",
     name: "HostOps",
-    tagline: "Managed hosting, infrastructure and DevOps — without an internal SRE team.",
-    category: "Cloud & Infrastructure",
-    desc: "HostOps handles your cloud hosting, application infrastructure, security and observability so your team can ship features, not babysit servers. Whether AWS, Azure, GCP or hybrid — we cover provisioning, monitoring, backups and incident response.",
+    tagline: "An AI-driven operations and finance platform purpose-built for the hospitality industry.",
+    category: "Hospitality Intelligence",
+    desc: "From front-of-house transactions to owner-share settlements, HostOps replaces fragmented systems and email approvals with one unified, audit-ready ecosystem.",
     highlights: [
-      "Managed cloud hosting (AWS / Azure / GCP)",
-      "CI/CD pipelines and DevOps automation",
-      "Security hardening, patching and backups",
-      "24x7 monitoring with SLA-backed support",
+      "Hospitality-native workflows — built for hotels, resorts, serviced apartments, clubs and restaurants",
+      "Approval-first architecture — every transaction logged, routed and audit-ready by default",
+      "Real-time financial control — live P&L, cash flow and budget variance across every property",
+      "Owner settlement engine — algorithmic, multi-owner ready, defensible at every payout",
     ],
-    bestFor: "Tech, SaaS and growing digital businesses that need uptime without the SRE headcount.",
-    href: "/hostops",
-  },
-  {
-    slug: "etcr",
-    name: "eTCR",
-    tagline: "Intelligent service operations and collection reconciliation for pan-India service networks.",
-    category: "Service Operations",
-    desc: "eTCR unifies service call management, engineer closures, cash and UPI collection tracking, and automated reconciliation into one operational backbone — built for high-volume service networks across mobile, AC, TV, appliance and electronics service centres.",
-    highlights: [
-      "Bulk call upload, branch allocation, engineer assignment",
-      "Mobile, geo-tagged engineer closures with digital proof",
-      "Cash & UPI collection tracking per call, per engineer",
-      "Automated reconciliation engine — leakage stops at source",
-    ],
-    bestFor: "Pan-India service operations teams managing high-volume field calls and collections.",
-    href: "/etcr",
+    bestFor: "Hotel owners, hospitality groups and property managers who need financial control without the admin overhead.",
+    href: "https://hostops.savitursolutions.com/login",
   },
 ];
 
@@ -85,7 +54,7 @@ export default function OurProducts() {
         tag="Our Portfolio"
         title="Products built from"
         titleAccent="real consulting battles"
-        tagline="Every product in the Savitron.ai portfolio was born inside a client engagement — solving a problem we kept seeing again and again."
+        tagline="Every product in the Savitur portfolio was born inside a client engagement — solving a problem we kept seeing again and again."
         variant="dark"
         backgroundVideo="/video/PRODUCTS.mp4"
         ctas={[
@@ -126,41 +95,13 @@ export default function OurProducts() {
                     <p className="text-xs uppercase tracking-widest text-ink-faint mb-1">Best fit</p>
                     <p className="text-sm md:text-base text-ink">{p.bestFor}</p>
                   </div>
-                  <Link href={p.href} className="btn-primary">
+                  <a href={p.href} target="_blank" rel="noopener noreferrer" className="btn-primary">
                     Explore {p.name}<span aria-hidden>→</span>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </ScrollReveal>
           ))}
-        </div>
-      </section>
-
-      <section className="bg-platinum py-14 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 md:mb-14">
-            <ScrollReveal><SectionTag>Why Savitron.ai Products</SectionTag></ScrollReveal>
-            <ScrollReveal delay={80}>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-ink">
-                Built to <span className="text-gradient-gold">work together</span>
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={140}><div className="divider-gold" /></ScrollReveal>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-            {[
-              { title: "One trusted partner", desc: "Buy from the team that supports you. Same accountability across every product in the stack." },
-              { title: "Integrated by default", desc: "Skimaa, Zoho, HostOps and eTCR share data, identity and reporting — not separate silos." },
-              { title: "Consulting-led, product-grade", desc: "Each product is honed by real client work, then engineered to product-grade reliability." },
-            ].map((c, i) => (
-              <ScrollReveal key={c.title} delay={i * 80}>
-                <div className="card-hover h-full bg-surface rounded-2xl border border-border p-5 md:p-7">
-                  <h3 className="font-heading text-lg md:text-xl font-semibold text-ink mb-2">{c.title}</h3>
-                  <p className="text-sm md:text-base text-ink-muted">{c.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -170,7 +111,6 @@ export default function OurProducts() {
         titleAccent="fits?"
         body="Tell us about your operations — we'll point you to what actually moves the needle."
         primaryCta={{ label: "Talk to Our Team", href: "/contact-us" }}
-        secondaryCta={{ label: "All Services", href: "/business-consulting" }}
       />
     </>
   );

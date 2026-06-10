@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Hero from "@amitkk/basic/static/Hero";
-import SectionTag from "@amitkk/basic/static/SectionTag";
 import ScrollReveal from "@amitkk/basic/static/ScrollReveal";
 import CTABanner from "@amitkk/basic/static/CTABanner";
 import ValuesGrid from "@amitkk/basic/static/ValuesGrid";
@@ -55,7 +54,7 @@ const team: Member[] = [
     group: "Leadership",
     experience: "25+ years",
     bio: "25+ years of experience across IT and telecom, specialising in delivering business outcomes through AI-led transformation and consulting. Previously with Amazon, Capgemini, Nokia, DevRev.AI and Daewoo Telecom.",
-    photo: "/images/static/team/Hemand_Pandey.jpeg",
+    photo: "/images/static/team/Hemand_Pandey.png",
   },
   
 ];
@@ -164,7 +163,7 @@ export default function OurTeamPage() {
               <p className="text-ink-muted">Try clearing filters or searching by a different term.</p>
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 max-w-3xl mx-auto">
               {filtered.map((m, i) => (
                 <ScrollReveal key={m.name} delay={i * 80}>
                   <button
@@ -172,28 +171,28 @@ export default function OurTeamPage() {
                     onClick={() => setActiveName(m.name)}
                     className="group w-full text-left card-hover bg-surface rounded-2xl overflow-hidden border border-border shadow-sm"
                   >
-                    <div className="relative aspect-[4/5] w-full overflow-hidden bg-platinum">
+                    <div className="relative aspect-[3/4] w-full overflow-hidden bg-platinum">
                       <Image
                         src={m.photo}
                         alt={`${m.name} — ${m.title}`}
                         fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-navbar/80 via-navbar/15 to-transparent" />
-                      <span className="absolute top-3 left-3 bg-gold text-navbar text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full shadow">{m.group}</span>
+                      <div className="absolute inset-0 bg-gradient-to-t from-navbar/85 via-navbar/20 to-transparent" />
                       <div className="absolute inset-x-0 bottom-0 p-4 text-page">
-                        <p className="font-heading text-lg font-bold leading-tight">{m.name}</p>
-                        <p className="text-xs opacity-90 mt-0.5">{m.experience} experience</p>
+                        <p className="font-heading text-base font-bold leading-tight">{m.name}</p>
+                        <p className="text-xs opacity-80 mt-0.5">{m.title}</p>
                       </div>
                     </div>
-                    <div className="p-5">
-                      <p className="text-xs uppercase tracking-widest text-gold mb-1">{m.group}</p>
-                      <p className="text-sm font-semibold text-ink">{m.title}</p>
-                      <p className="mt-3 text-xs text-ink-muted line-clamp-3">{m.bio}</p>
-                      <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-gold group-hover:gap-2 transition-all">
-                        Read profile
-                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="px-4 py-3.5 flex items-center justify-between">
+                      <div>
+                        <p className="text-xs font-semibold text-gold">{m.experience} experience</p>
+                        <p className="text-xs text-ink-muted mt-0.5 line-clamp-1">{m.group}</p>
+                      </div>
+                      <span className="inline-flex items-center gap-1 text-xs font-semibold text-gold group-hover:gap-2 transition-all flex-shrink-0">
+                        Profile
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                       </span>

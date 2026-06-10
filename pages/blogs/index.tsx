@@ -1,6 +1,5 @@
 import { dummyBlogs, DummyBlog } from "@amitkk/blog/static/dummyBlogs";
 import Link from "next/link";
-import { useMemo, useState } from "react";
 
 import Hero from "@amitkk/basic/static/Hero";
 import CTABanner from "@amitkk/basic/static/CTABanner";
@@ -110,32 +109,10 @@ function BlogCard({ blog, featured = false }: { blog: BlogShape; featured?: bool
   );
 }
 
+const featured = blogs[0];
+const rest = blogs.slice(1);
+
 export default function BlogPage() {
-  const [search, setSearch] = useState("");
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-
-  const allCategories = useMemo(() => {
-    const map = new Map<string, { _id: string | number; name: string }>();
-    blogs.forEach((b) => (b.category || []).forEach((c) => map.set(String(c._id), { _id: c._id, name: c.name })));
-    return Array.from(map.values());
-  }, []);
-
-  const filtered = useMemo(() => {
-    const term = search.trim().toLowerCase();
-    return blogs.filter((b) => {
-      if (activeCategory !== "all") {
-        const ids = (b.category || []).map((c) => String(c._id));
-        if (!ids.includes(activeCategory)) return false;
-      }
-      if (!term) return true;
-      const haystack = `${b.name} ${stripHtml(b.content)}`.toLowerCase();
-      return haystack.includes(term);
-    });
-  }, [search, activeCategory]);
-
-  const featured = filtered[0];
-  const rest = filtered.slice(1);
-
   return (
     <>
       <Hero
@@ -148,99 +125,36 @@ export default function BlogPage() {
         size="sm"
       />
 
-      <section className="bg-page sticky top-20 z-30 border-b border-border backdrop-blur-md py-3 md:py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center gap-3 md:gap-6">
-          <div className="relative flex-1">
-            <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-ink-faint" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search insights by keyword…"
-              className="w-full pl-10 pr-4 py-2.5 md:py-3 rounded-xl border border-border bg-surface text-sm md:text-base text-ink focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition"
-            />
-          </div>
-          {allCategories.length > 0 && (
-            <div className="flex flex-wrap gap-2 md:flex-nowrap md:overflow-x-auto md:max-w-[60%]">
-              <button
-                onClick={() => setActiveCategory("all")}
-                className={`text-xs md:text-sm font-medium rounded-full px-3 md:px-4 py-1.5 md:py-2 whitespace-nowrap transition-all border ${
-                  activeCategory === "all"
-                    ? "bg-navbar text-page border-gold"
-                    : "bg-surface border-border text-ink-muted hover:border-gold hover:text-gold"
-                }`}
-              >
-                All
-              </button>
-              {allCategories.map((c) => (
-                <button
-                  key={String(c._id)}
-                  onClick={() => setActiveCategory(String(c._id))}
-                  className={`text-xs md:text-sm font-medium rounded-full px-3 md:px-4 py-1.5 md:py-2 whitespace-nowrap transition-all border ${
-                    activeCategory === String(c._id)
-                      ? "bg-navbar text-page border-gold"
-                      : "bg-surface border-border text-ink-muted hover:border-gold hover:text-gold"
-                  }`}
-                >
-                  {c.name}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
       <section className="bg-page bg-warm-grain py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {filtered.length === 0 ? (
-            <div className="text-center py-16 md:py-24">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center">
-                <svg className="w-10 h-10 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+          {featured && (
+            <ScrollReveal>
+              <div className="mb-10 md:mb-14">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="inline-block w-8 h-px bg-gold" />
+                  <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-gold">Featured</span>
+                </div>
+                <BlogCard blog={featured} featured />
               </div>
-              <h3 className="font-heading text-xl md:text-2xl font-semibold text-ink mb-2">No insights found</h3>
-              <p className="text-sm md:text-base text-ink-muted mb-6">{search ? `We couldn't find anything matching "${search}".` : "Check back soon — fresh insights are on the way."}</p>
-              {(search || activeCategory !== "all") && (
-                <button onClick={() => { setSearch(""); setActiveCategory("all"); }} className="btn-primary">
-                  Clear filters<span aria-hidden>→</span>
-                </button>
-              )}
-            </div>
-          ) : (
-            <>
-              {featured && (
-                <ScrollReveal>
-                  <div className="mb-10 md:mb-14">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="inline-block w-8 h-px bg-gold" />
-                      <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-gold">Featured</span>
-                    </div>
-                    <BlogCard blog={featured} featured />
-                  </div>
-                </ScrollReveal>
-              )}
+            </ScrollReveal>
+          )}
 
-              {rest.length > 0 && (
-                <>
-                  <ScrollReveal>
-                    <div className="flex items-center gap-3 mb-6">
-                      <span className="inline-block w-8 h-px bg-gold" />
-                      <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-gold">Latest Insights</span>
-                      <span className="text-xs md:text-sm text-ink-faint">({rest.length})</span>
-                    </div>
+          {rest.length > 0 && (
+            <>
+              <ScrollReveal>
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="inline-block w-8 h-px bg-gold" />
+                  <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-gold">Latest Insights</span>
+                  <span className="text-xs md:text-sm text-ink-faint">({rest.length})</span>
+                </div>
+              </ScrollReveal>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                {rest.map((b, i) => (
+                  <ScrollReveal key={String(b._id)} delay={(i % 3) * 60}>
+                    <BlogCard blog={b} />
                   </ScrollReveal>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-                    {rest.map((b, i) => (
-                      <ScrollReveal key={String(b._id)} delay={(i % 3) * 60}>
-                        <BlogCard blog={b} />
-                      </ScrollReveal>
-                    ))}
-                  </div>
-                </>
-              )}
+                ))}
+              </div>
             </>
           )}
         </div>
@@ -256,4 +170,3 @@ export default function BlogPage() {
     </>
   );
 }
-

@@ -30,77 +30,10 @@ const tickerItems = [
 ];
 
 const services = [
-  { id: "our-services", title: "Business Transformation through Technology", icon: "/images/icons/services/business-consulting.svg", desc: "Strategy, finance leadership and operational excellence — powered by AI and modern platforms." },
-  { id: "ai-solutions", title: "AI Solutions", icon: "/images/icons/services/hr-management.svg", desc: "Generative AI, predictive analytics and intelligent automation." },
-  { id: "offshore-consulting", title: "Offshore Operations Setup through Tech", icon: "/images/icons/services/fund-management.svg", desc: "GCC setup, finance outsourcing and India-based operations for global firms." },
+  { id: "our-services", title: "Finance Domain Transformation", icon: "/images/icons/services/business-consulting.svg", desc: "End-to-end finance stack redesigned for outcomes — operations, compliance, fund management and FP&A." },
+  { id: "our-solutions", title: "Our Solutions", icon: "/images/icons/services/hr-management.svg", desc: "Standalone AI agents and data modelling solutions — invoice processing, reconciliation, and intelligent automation." },
 ];
 
-const problems = [
-  {
-    category: "Platform Sprawl",
-    problem: "The business runs on 6 different platforms — CRM, ERP, HRMS, billing, banking and analytics — none of which talk to each other. Every report is a manual stitch-up and every decision is made on stale data.",
-    solution: "We co-work with your team to map the full platform landscape, design a unified data and integration architecture, and implement it on best-fit technology — Zoho, AWS, Microsoft or a custom stack — so your systems finally speak one language.",
-    href: "/our-services",
-    cta: "How we solve it",
-  },
-  {
-    category: "Invisible ROI",
-    problem: "Tech budgets keep growing but leadership can't connect the spend to a business outcome. Projects get delivered, dashboards go live, and six months later no one can say whether it was worth it.",
-    solution: "Our finance experts define measurable ROI targets before the first line of code is written — cost per transaction, close cycle days, headcount per revenue unit. Every build decision is made through that lens, and we track the numbers after go-live.",
-    href: "/our-services",
-    cta: "How we solve it",
-  },
-  {
-    category: "Build vs. Buy",
-    problem: "The team spends months debating whether to build a custom solution or buy a SaaS product — and ends up doing both badly. Customised off-the-shelf tools that don't fit, or bespoke builds that nobody maintains.",
-    solution: "We bring domain consultants and technology architects into the same room to run a structured build-vs-buy analysis — factoring in total cost of ownership, integration complexity, vendor lock-in and your team's ability to operate it long-term. You get a defensible decision, not a guess.",
-    href: "/our-services",
-    cta: "Talk to our team",
-  },
-  {
-    category: "Fragmented Data",
-    problem: "Finance data is in Tally. Operations data is in Excel. Customer data is in the CRM. Each source tells a different story and reconciling them for a board pack takes a week every month.",
-    solution: "We design and implement a centralised data layer — a cloud data lake on AWS, Azure or GCP — that pulls from every source, normalises the schema and makes clean, consistent data available to your analytics, AI and reporting tools in real time.",
-    href: "/our-services",
-    cta: "See how we build it",
-  },
-];
-
-
-const whyChooseUs = [
-  {
-    title: "Co-design with the Customer",
-    desc: "We sit with your team to co-design the Data, IT and AI framework — not hand over a blueprint and walk away. The outcome is built together, so it actually gets adopted.",
-    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
-  },
-  {
-    title: "Bridging Domain & Technology",
-    desc: "We close the gap between what domain experts know and what technology can do. Our team combines finance, operations and engineering — so nothing gets lost in translation between the business and the build.",
-    icon: "M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z",
-  },
-  {
-    title: "Industry Nuance, Not Generic Playbooks",
-    desc: "Finance, fund management, manufacturing, retail, aviation — each industry has its own language and edge cases. We bring in practitioners who have worked inside these sectors, not consultants reading about them.",
-    icon: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7",
-  },
-  {
-    title: "Deep Technology Competence",
-    desc: "We have hands-on competence across AWS, Zoho, Microsoft Azure, OpenAI and Anthropic — giving you access to the best platforms without the overhead of managing multiple vendor relationships yourself.",
-    icon: "M13 10V3L4 14h7v7l9-11h-7z",
-  },
-  {
-    title: "Investment that Pays Back",
-    desc: "We marry deep finance expertise with technology execution to make every rupee of tech spend traceable to a business outcome — faster close, lower headcount cost, better compliance, measurable ROI.",
-    icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
-  },
-];
-
-const productsTeaser = [
-  { name: "Skimaa", desc: "Automated reconciliation, controls and audit support.", href: "/skimaa" },
-  { name: "Zoho Tech Partner", desc: "End-to-end implementation of the Zoho suite.", href: "/zoho-tech-partner" },
-  { name: "HostOps", desc: "Managed hosting and infrastructure operations.", href: "/hostops" },
-  { name: "eTCR", desc: "Intelligent service operations and collection reconciliation platform.", href: "/etcr" },
-];
 
 
 export default function HomePage() {
@@ -133,43 +66,49 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* INDUSTRY PORTFOLIO — sectors grid, no icon images */}
-      <section className="bg-page bg-warm-grain py-14 md:py-20">
+      {/* ABOUT SAVITRON.AI — brand origin story */}
+      <section className="bg-platinum py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 md:mb-14">
-            <ScrollReveal>
-              <SectionTag>Sectors We Serve</SectionTag>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <ScrollReveal direction="left">
+              <div>
+                <SectionTag>About Savitron.ai</SectionTag>
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-ink mt-4 mb-6">
+                  Where finance domain meets <span className="text-gradient-gold">AI engineering</span>
+                </h2>
+                <div className="divider-gold-left" />
+                <p className="text-sm md:text-base text-ink-muted leading-relaxed">
+                  Savitron.ai is a technology and domain-led business transformation company — formerly Savitur Solutions LLP, a CA-founded consultancy. Our founders recognised early that finance and technology can no longer operate in silos, and built Savitron.ai at that intersection.
+                </p>
+              </div>
             </ScrollReveal>
-            <ScrollReveal delay={80}>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-ink">
-                Cross-industry <span className="text-gradient-gold">expertise</span>
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={140}>
-              <div className="divider-gold-left" />
+            <ScrollReveal direction="right" delay={120}>
+              <div className="bg-navbar rounded-2xl p-8 md:p-10 border border-gold/20">
+                <p className="text-xs font-semibold uppercase tracking-widest text-gold mb-6">The name</p>
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <span className="flex-shrink-0 w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center font-heading text-gold text-xl font-bold">S</span>
+                    <div>
+                      <p className="font-heading text-lg font-semibold text-page">Savi</p>
+                      <p className="text-sm text-page/70 mt-1">Savitur — Rising Sun. Our heritage as a CA-founded consultancy, built on precision and trust.</p>
+                    </div>
+                  </div>
+                  <div className="border-t border-gold/10" />
+                  <div className="flex items-start gap-4">
+                    <span className="flex-shrink-0 w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center font-heading text-gold text-xl font-bold">T</span>
+                    <div>
+                      <p className="font-heading text-lg font-semibold text-page">Tron</p>
+                      <p className="text-sm text-page/70 mt-1">Transformation through AI &amp; Technology. The force that turns domain knowledge into measurable outcomes.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </ScrollReveal>
           </div>
-          <ScrollReveal>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-px bg-border border border-border rounded-2xl overflow-hidden">
-              {industries.map((item) => (
-                <div
-                  key={item.label}
-                  className="group bg-surface py-7 px-4 text-center transition-colors duration-200 hover:bg-navbar cursor-default"
-                >
-                  <span className="block text-2xl md:text-3xl mb-2 text-gold group-hover:text-gold-light transition-colors" aria-hidden>
-                    {item.icon}
-                  </span>
-                  <p className="text-sm font-medium text-ink-muted group-hover:text-page transition-colors">
-                    {item.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
-      {/* SERVICES OFFERED — alternating to dark for contrast */}
+      {/* WHAT WE DO */}
       <section className="bg-platinum py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 md:mb-14">
@@ -178,160 +117,146 @@ export default function HomePage() {
             </ScrollReveal>
             <ScrollReveal delay={80}>
               <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-ink">
-                Services <span className="text-gradient-gold">Offered</span>
+                Built for <span className="text-gradient-gold">measurable outcomes</span>
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={140}>
               <div className="divider-gold" />
             </ScrollReveal>
             <ScrollReveal delay={200}>
-              <p className="text-sm md:text-base text-ink-muted max-w-2xl mx-auto">A comprehensive suite of services designed to address your most pressing business needs and unlock your full potential.</p>
-            </ScrollReveal>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-            {services.map((s, i) => (
-              <ScrollReveal key={s.id} delay={i * 80}>
-                <Link href={`/${s.id}`} className="group card-hover h-full block bg-surface rounded-2xl border border-border p-5 md:p-7">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-gold/40 bg-gold/5">
-                    <Image src={s.icon} alt={s.title} width={24} height={24} className="object-contain" />
-                  </div>
-                  <h3 className="font-heading text-lg md:text-xl font-semibold text-ink mb-2">{s.title}</h3>
-                  <p className="text-sm text-ink-muted mb-4">{s.desc}</p>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-gold group-hover:gap-2 transition-all">
-                    Learn more <span aria-hidden>→</span>
-                  </span>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* BUSINESS USECASES */}
-      <section className="bg-page bg-warm-grain py-14 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 md:mb-14">
-            <ScrollReveal>
-              <SectionTag>Proven in the field</SectionTag>
-            </ScrollReveal>
-            <ScrollReveal delay={80}>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-ink">
-                Business Usecases <span className="text-gradient-gold">We Solved</span>
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={140}>
-              <div className="divider-gold" />
-            </ScrollReveal>
-            <ScrollReveal delay={200}>
-              <p className="text-sm md:text-base text-ink-muted max-w-2xl mx-auto">
-                Every product and service we build started as a problem we kept seeing inside real businesses. Here&apos;s how we solve them.
+              <p className="text-sm md:text-base text-ink-muted max-w-3xl mx-auto">
+                We help businesses re-design and re-architect their finance function through technology to deliver measurable outcomes — not just deploy tools. We own KPIs alongside our clients and co-build solutions built to last.
               </p>
             </ScrollReveal>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-            {problems.map((p, i) => (
-              <ScrollReveal key={i} delay={i * 80}>
-                <Link href={p.href} className="group block h-full bg-surface rounded-2xl border border-border card-hover p-6 md:p-8">
-                  <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gold bg-gold/10 border border-gold/25 px-3 py-1 rounded-full mb-5">
-                    {p.category}
-                  </span>
-                  <div className="flex items-start gap-4 mb-5">
-                    <span className="flex-shrink-0 mt-0.5 w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center">
-                      <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </span>
-                    <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-widest text-red-400 mb-1">The Problem</p>
-                      <p className="text-sm md:text-base font-medium text-ink-muted leading-snug">{p.problem}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <span className="flex-shrink-0 mt-0.5 w-8 h-8 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-center">
-                      <svg className="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-widest text-gold mb-1">How We Solve It</p>
-                      <p className="text-sm md:text-base text-ink leading-snug">{p.solution}</p>
-                    </div>
-                  </div>
-                  <div className="mt-5 pt-4 border-t border-border">
-                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-gold group-hover:gap-2 transition-all">
-                      {p.cta} <span aria-hidden>→</span>
-                    </span>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* WHY CHOOSE US */}
-      <section className="bg-page bg-warm-grain py-14 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 md:mb-14">
-            <ScrollReveal>
-              <SectionTag>Why us</SectionTag>
-            </ScrollReveal>
-            <ScrollReveal delay={80}>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-ink">
-                Why Choose <span className="text-gradient-gold">Savitron.ai</span>
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={140}>
-              <div className="divider-gold" />
-            </ScrollReveal>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            {whyChooseUs.map((w, i) => (
-              <ScrollReveal key={w.title} delay={i * 70}>
-                <div className={`card-hover h-full bg-surface rounded-2xl border border-border p-6 md:p-8 flex flex-col${i === 4 ? " sm:col-span-2 lg:col-span-1" : ""}`}>
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-gold/40 bg-gold/5 mb-5 flex-shrink-0">
-                    <svg className="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d={w.icon} />
-                    </svg>
-                  </span>
-                  <h3 className="font-heading text-lg md:text-xl font-semibold text-ink mb-3">{w.title}</h3>
-                  <p className="text-sm md:text-base text-ink-muted leading-relaxed">{w.desc}</p>
+          {/* Finance Function Transformation */}
+          <ScrollReveal>
+            <div className="bg-surface rounded-2xl border border-border overflow-hidden mb-6 md:mb-8">
+              <div className="bg-navbar px-6 md:px-10 py-5 md:py-6 border-b border-gold/20">
+                <SectionTag hero>Core Strength</SectionTag>
+                <h3 className="font-heading text-2xl md:text-3xl font-semibold text-page mt-2">Finance Function Transformation</h3>
+                <p className="text-sm md:text-base text-page/70 mt-2 max-w-2xl">End-to-end redesign of your finance stack — spanning four areas.</p>
+              </div>
+              <div className="p-6 md:p-10 grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+                {[
+                  { num: "01", title: "Operations Automation", desc: "Invoicing, clearing, data entry and day-to-day accounting workflows — zero manual touch." },
+                  { num: "02", title: "Reporting Automation", desc: "Profitability statements, costing, audits and compliance — delivered with accuracy and speed." },
+                  { num: "03", title: "Fund & Working Capital Planning", desc: "Cash flow forecasting, fund planning and working capital management automation." },
+                  { num: "04", title: "FP&A & Business Intelligence", desc: "Cause-and-effect dashboards and conversational analytics across Sales, SCM, Costing and every driver of profitability." },
+                ].map((item, i) => (
+                  <ScrollReveal key={item.num} delay={i * 60}>
+                    <div className="flex items-start gap-4 bg-platinum rounded-xl p-4 md:p-5 border border-border h-full">
+                      <span className="flex-shrink-0 font-heading text-2xl font-bold text-gold/40 leading-none w-8">{item.num}</span>
+                      <div>
+                        <h4 className="font-heading text-base md:text-lg font-semibold text-ink mb-1">{item.title}</h4>
+                        <p className="text-sm text-ink-muted leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* AI Solutions */}
+          <ScrollReveal delay={80}>
+            <div className="bg-surface rounded-2xl border border-border overflow-hidden mb-6 md:mb-8">
+              <div className="bg-navbar px-6 md:px-10 py-5 md:py-6 border-b border-gold/20">
+                <SectionTag hero>AI · Featured</SectionTag>
+                <h3 className="font-heading text-2xl md:text-3xl font-semibold text-page mt-2">Our Solutions</h3>
+                <p className="text-sm md:text-base text-page/70 mt-2 max-w-2xl">Standalone agents and end-to-end data modelling — engineered for real outcomes, not demos.</p>
+              </div>
+              <div className="p-6 md:p-10 grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6">
+                {[
+                  {
+                    title: "Standalone AI Agents",
+                    desc: "AP Agent and Clearing Agent that run autonomously — reducing person-hours, eliminating manual errors and scaling with transaction volume.",
+                  },
+                  {
+                    title: "Function Re-Architect",
+                    desc: "End-to-end data modelling, process automation and analytics via knowledge graphs, giving founders a real-time view of their business.",
+                  },
+                  {
+                    title: "Industry-Specific Products",
+                    desc: "SkiMaa — real-time scheme computation for General Trade. HostOps — hospitality intelligence for budgeting, profitability, cash flows and occupancy.",
+                  },
+                ].map((item, i) => (
+                  <ScrollReveal key={item.title} delay={i * 70}>
+                    <div className="card-hover h-full bg-platinum rounded-xl border border-border p-5 md:p-6 flex flex-col">
+                      <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gold/40 bg-gold/5 mb-4 flex-shrink-0">
+                        <svg className="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                      </span>
+                      <h4 className="font-heading text-base md:text-lg font-semibold text-ink mb-2">{item.title}</h4>
+                      <p className="text-sm text-ink-muted leading-relaxed flex-1">{item.desc}</p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+              <div className="px-6 md:px-10 pb-6 md:pb-8">
+                <Link href="/our-solutions" className="btn-primary">
+                  Explore Our Solutions <span aria-hidden>→</span>
+                </Link>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Our Approach */}
+          <ScrollReveal delay={120}>
+            <div className="bg-navbar rounded-2xl border border-gold/20 p-6 md:p-10">
+              <div className="mb-6">
+                <SectionTag hero>Our Approach</SectionTag>
+                <h3 className="font-heading text-xl md:text-2xl font-semibold text-page mt-2">How we work with you</h3>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="flex items-start gap-4">
+                  <span className="flex-shrink-0 w-2 h-2 rounded-full bg-gold mt-2" />
+                  <div>
+                    <p className="font-semibold text-page text-sm md:text-base mb-1">Platform-agnostic</p>
+                    <p className="text-sm text-page/70">We design, architect and implement what fits your business, not what we sell. AWS · GCP · Azure · Anthropic · OpenAI</p>
+                  </div>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+                <div className="flex items-start gap-4">
+                  <span className="flex-shrink-0 w-2 h-2 rounded-full bg-gold mt-2" />
+                  <div>
+                    <p className="font-semibold text-page text-sm md:text-base mb-1">Domain-first</p>
+                    <p className="text-sm text-page/70">Our consultants bridge the gap between finance domain knowledge and technology execution, so nothing gets lost in translation.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* PRODUCTS TEASER */}
-      <section className="bg-page bg-warm-grain py-14 md:py-20">
+      {/* INDUSTRY PORTFOLIO */}
+      <section className="bg-platinum py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 md:mb-14">
-            <ScrollReveal>
-              <SectionTag>From Savitron.ai</SectionTag>
-            </ScrollReveal>
-            <ScrollReveal delay={80}>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-ink">
-                Our <span className="text-gradient-gold">Products</span>
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={140}>
-              <div className="divider-gold" />
-            </ScrollReveal>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-            {productsTeaser.map((p, i) => (
-              <ScrollReveal key={p.href} delay={i * 80}>
-                <Link href={p.href} className="block card-hover h-full bg-surface rounded-2xl border border-border p-5 md:p-7">
-                  <h3 className="font-heading text-xl md:text-2xl font-semibold text-ink mb-2">{p.name}</h3>
-                  <p className="text-sm text-ink-muted mb-4">{p.desc}</p>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-gold">
-                    Explore <span aria-hidden>→</span>
-                  </span>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
+          <ScrollReveal>
+            <div className="bg-surface rounded-2xl border border-border overflow-hidden">
+              <div className="bg-navbar px-6 md:px-10 py-5 md:py-6 border-b border-gold/20">
+                <SectionTag hero>Sectors We Serve</SectionTag>
+                <h3 className="font-heading text-2xl md:text-3xl font-semibold text-page mt-2">Cross-industry <span className="text-gradient-gold">expertise</span></h3>
+                <p className="text-sm md:text-base text-page/70 mt-2 max-w-2xl">Finance, Hospitality, General Trade and beyond — we bring domain depth to every engagement.</p>
+              </div>
+              <div className="p-6 md:p-10 grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+                {industries.map((item, i) => (
+                  <ScrollReveal key={item.label} delay={i * 40}>
+                    <div className="flex items-start gap-4 bg-platinum rounded-xl p-4 md:p-5 border border-border h-full">
+                      <span className="flex-shrink-0 w-10 h-10 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-center text-xl" aria-hidden>
+                        {item.icon}
+                      </span>
+                      <div className="flex items-center h-full">
+                        <h4 className="font-heading text-base md:text-lg font-semibold text-ink">{item.label}</h4>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -341,8 +266,8 @@ export default function HomePage() {
         title="Ready to build your"
         titleAccent="AI advantage?"
         body="We partner with you to design, build and scale an AI strategy that delivers measurable business outcomes."
-        primaryCta={{ label: "Book a Free AI Readiness Sprint", href: "/contact-us" }}
-        secondaryCta={{ label: "Explore Services", href: "/our-services" }}
+        primaryCta={{ label: "Engage Us", href: "/contact-us" }}
+        secondaryCta={{ label: "Explore Our Solutions", href: "/our-solutions" }}
       />
     </div>
   );

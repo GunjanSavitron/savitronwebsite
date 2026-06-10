@@ -6,7 +6,6 @@ import { dummyBlogs } from "@amitkk/blog/static/dummyBlogs";
 
 const pages = [
   { name: "Home", url: "/" },
-  { name: "About", url: "/about" },
   { name: "Business Consulting", url: "/business-consulting" },
   { name: "Tech Consulting", url: "/tech-consulting" },
   { name: "Offshore Consulting", url: "/offshore-consulting" },

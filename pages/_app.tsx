@@ -6,9 +6,12 @@ import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
 import Loader from "@amitkk/basic/static/Loader";
 
+type PageWithLayout = React.ComponentType<any> & { noLayout?: boolean };
+
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const noLayout = (Component as PageWithLayout).noLayout === true;
 
   useEffect(() => {
     const handleStart = () => setLoading(true);
@@ -27,6 +30,10 @@ export default function App({ Component, pageProps }: AppProps) {
       clearTimeout(timer);
     };
   }, [router]);
+
+  if (noLayout) {
+    return <Component {...pageProps} />;
+  }
 
   return (
     <>

@@ -1,9 +1,8 @@
+"use client";
+import { useState, useRef } from "react";
 import Hero from "@amitkk/basic/static/Hero";
 import SectionTag from "@amitkk/basic/static/SectionTag";
 import ScrollReveal from "@amitkk/basic/static/ScrollReveal";
-import CTABanner from "@amitkk/basic/static/CTABanner";
-
-const CAREERS_EMAIL = "careers@savitursolutions.com";
 
 const openings: {
   title: string;
@@ -12,41 +11,62 @@ const openings: {
   dept: string;
   desc: string;
   skills: string[];
-}[] = [];
-
-const perks = [
+}[] = [
   {
-    name: "Founder-Grade Ownership",
-    desc: "You'll own the client outcome, not just a slice. The co-founders stay engaged on every account — you'll see how they think.",
-    iconPath: "M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.456-2.456L14.25 6l1.035-.259a3.375 3.375 0 002.456-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z",
-  },
-  {
-    name: "Top-Tier Exposure",
-    desc: "Work alongside ex-Goldman, KPMG, Macquarie, Vedanta and Samsung leaders. Pick up the playbooks they brought from those firms.",
-    iconPath: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
-  },
-  {
-    name: "Hybrid & Flexible",
-    desc: "Gurugram HQ with remote flexibility. We optimise for output and quality of judgement, not seat time.",
-    iconPath: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
-  },
-  {
-    name: "Competitive Compensation",
-    desc: "Market-rate salaries, performance bonuses and ESOPs for senior roles in the product group.",
-    iconPath: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+    title: "Full Stack Developer",
+    type: "Full-time",
+    location: "Gurugram / Remote",
+    dept: "Engineering",
+    desc: "We're looking for a Full Stack Developer to build and scale our AI-driven products — Skimaa and HostOps. You'll work across the stack: designing APIs, building React frontends and integrating AI/ML pipelines. You'll collaborate directly with co-founders and domain experts, ship to production fast, and own features end-to-end.",
+    skills: ["React / Next.js", "Node.js", "TypeScript", "REST & GraphQL APIs", "PostgreSQL / MongoDB", "AWS or GCP", "AI/LLM integration"],
   },
 ];
 
-function applyHref(role?: string) {
-  if (!role) return `mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent("Open application — Savitron.ai")}`;
-  const subject = encodeURIComponent(`Application — ${role}`);
-  const body = encodeURIComponent(
-    `Hi Savitron.ai team,\n\nI'd like to apply for the ${role} role.\n\nPlease find my CV and a short note about my background attached / pasted below.\n\nName:\nLocation:\nYears of experience:\nLinkedIn:\nNotice period:\n\nThanks,`
-  );
-  return `mailto:${CAREERS_EMAIL}?subject=${subject}&body=${body}`;
-}
+type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function CareersPage() {
+  const [applyRole, setApplyRole] = useState<string | null>(null);
+  const [formState, setFormState] = useState<FormState>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  function openModal(role: string) {
+    setApplyRole(role);
+    setFormState("idle");
+    setErrorMsg("");
+  }
+
+  function closeModal() {
+    setApplyRole(null);
+    setFormState("idle");
+    setErrorMsg("");
+    formRef.current?.reset();
+  }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setFormState("submitting");
+    setErrorMsg("");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch("/api/apply", { method: "POST", body: data });
+      const json = await res.json();
+      if (json.ok) {
+        setFormState("success");
+        formRef.current?.reset();
+      } else {
+        setFormState("error");
+        setErrorMsg(json.error ?? "Something went wrong. Please try again.");
+      }
+    } catch {
+      setFormState("error");
+      setErrorMsg("Network error. Please try again.");
+    }
+  }
+
   return (
     <>
       <Hero
@@ -59,49 +79,8 @@ export default function CareersPage() {
         size="md"
         ctas={[
           { label: "View Open Roles", href: "#openings" },
-          { label: "Send Us Your CV", href: applyHref(), variant: "outline" },
         ]}
       />
-
-      {/* Culture + perks */}
-      <section className="bg-page bg-warm-grain py-14 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            <ScrollReveal direction="left">
-              <SectionTag>Culture</SectionTag>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-ink leading-tight">
-                How we <span className="text-gradient-gold">work</span>
-              </h2>
-              <div className="divider-gold-left" />
-              <p className="text-base md:text-lg text-ink-muted mt-2">
-                We believe the best work comes from people who genuinely care — about the numbers, about the client, and about each other.
-              </p>
-              <p className="text-sm md:text-base text-ink-muted mt-4">
-                Savitron.ai is small enough that ownership is real. Every team member has direct exposure to founders, CFOs and audit committees from day one. Senior leaders coach, but they don&apos;t hand-off — you&apos;ll see how decisions get made, not just hear about them afterwards.
-              </p>
-              <p className="text-sm md:text-base text-ink-muted mt-4">
-                We move fast, but we don&apos;t cut corners. Accuracy is non-negotiable. Quality of judgement compounds over a career, and we&apos;re here for the long arc.
-              </p>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
-              {perks.map((perk, i) => (
-                <ScrollReveal key={perk.name} delay={i * 80} direction="right">
-                  <div className="card-hover h-full bg-surface rounded-2xl p-5 md:p-6 shadow-sm border border-border">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-gold/40 bg-gold/5 text-gold mb-3">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d={perk.iconPath} />
-                      </svg>
-                    </span>
-                    <h3 className="font-heading text-base md:text-lg font-semibold text-ink mb-1">{perk.name}</h3>
-                    <p className="text-sm text-ink-muted">{perk.desc}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Open positions */}
       <section id="openings" className="bg-platinum py-14 md:py-20 scroll-mt-24">
@@ -117,9 +96,6 @@ export default function CareersPage() {
             </ScrollReveal>
             <ScrollReveal delay={140}>
               <div className="divider-gold" />
-            </ScrollReveal>
-            <ScrollReveal delay={200}>
-              <p className="text-sm md:text-base text-ink-muted max-w-2xl mx-auto">We&apos;re building the team. New roles will be posted here — check back soon or send us your CV below.</p>
             </ScrollReveal>
           </div>
 
@@ -147,41 +123,155 @@ export default function CareersPage() {
                       </div>
                     </div>
                     <div className="flex-shrink-0">
-                      <a href={applyHref(job.title)} className="btn-primary whitespace-nowrap text-sm">
+                      <button
+                        type="button"
+                        onClick={() => openModal(job.title)}
+                        className="btn-primary whitespace-nowrap text-sm"
+                      >
                         Apply Now<span aria-hidden>→</span>
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
               </ScrollReveal>
             ))}
           </div>
-
-          <ScrollReveal delay={300}>
-            <div className="mt-10 md:mt-14 text-center">
-              <div className="bg-surface border border-border rounded-2xl p-7 md:p-10 max-w-2xl mx-auto">
-                <SectionTag>Open application</SectionTag>
-                <h3 className="font-heading text-xl md:text-2xl font-semibold text-ink mb-2">Don&apos;t see a role that fits?</h3>
-                <p className="text-sm md:text-base text-ink-muted mb-5">
-                  We&apos;re always looking for exceptional people — AI engineers, domain experts, consultants and product builders. If you&apos;d like to work with us, drop your CV — we read every application.
-                </p>
-                <a href={applyHref()} className="btn-outline">
-                  Send Us Your CV<span aria-hidden>→</span>
-                </a>
-              </div>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
-      <CTABanner
-        tag="Let's talk"
-        title="Curious about a role?"
-        titleAccent="Have a chat."
-        body="Reach out to our talent team — even an exploratory conversation. We're happy to share what working at Savitron.ai looks like."
-        primaryCta={{ label: "Email Careers", href: `mailto:${CAREERS_EMAIL}` }}
-        secondaryCta={{ label: "About Savitron.ai", href: "/about" }}
-      />
+
+      {/* APPLICATION MODAL */}
+      {applyRole && (
+        <div
+          className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-0 md:p-6 bg-navbar/70 backdrop-blur-sm"
+          onClick={closeModal}
+        >
+          <div
+            className="bg-surface w-full md:max-w-xl max-h-[92vh] overflow-y-auto rounded-t-3xl md:rounded-3xl shadow-2xl border border-border"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal header */}
+            <div className="bg-navbar px-6 py-5 rounded-t-3xl md:rounded-t-3xl border-b border-gold/20 flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-gold mb-1">Application</p>
+                <h2 className="font-heading text-xl font-bold text-page leading-tight">{applyRole}</h2>
+              </div>
+              <button
+                type="button"
+                onClick={closeModal}
+                aria-label="Close"
+                className="flex-shrink-0 w-8 h-8 rounded-full bg-page/10 hover:bg-page/20 flex items-center justify-center transition-colors mt-0.5"
+              >
+                <svg className="w-4 h-4 text-page" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Success state */}
+            {formState === "success" ? (
+              <div className="p-8 text-center">
+                <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 border border-gold/30 mb-4">
+                  <svg className="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+                <h3 className="font-heading text-xl font-semibold text-ink mb-2">Application sent!</h3>
+                <p className="text-sm text-ink-muted mb-6">We've received your application and will be in touch soon.</p>
+                <button type="button" onClick={closeModal} className="btn-primary">Close</button>
+              </div>
+            ) : (
+              <form ref={formRef} onSubmit={handleSubmit} className="p-6 space-y-4">
+                <input type="hidden" name="role" value={applyRole} />
+
+                <div>
+                  <label className="block text-xs font-semibold text-ink-muted uppercase tracking-widest mb-1.5">Full Name <span className="text-red-400">*</span></label>
+                  <input
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="Your full name"
+                    className="w-full px-4 py-3 rounded-xl bg-page border border-border focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 text-ink text-sm"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-ink-muted uppercase tracking-widest mb-1.5">Email Address <span className="text-red-400">*</span></label>
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="you@example.com"
+                    className="w-full px-4 py-3 rounded-xl bg-page border border-border focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 text-ink text-sm"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-ink-muted uppercase tracking-widest mb-1.5">Phone</label>
+                  <input
+                    name="phone"
+                    type="tel"
+                    placeholder="+91 98765 43210"
+                    className="w-full px-4 py-3 rounded-xl bg-page border border-border focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 text-ink text-sm"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-ink-muted uppercase tracking-widest mb-1.5">Role Applied For</label>
+                  <input
+                    name="role_display"
+                    type="text"
+                    defaultValue={applyRole}
+                    readOnly
+                    className="w-full px-4 py-3 rounded-xl bg-platinum border border-border text-ink-muted text-sm cursor-default"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-ink-muted uppercase tracking-widest mb-1.5">Cover Note</label>
+                  <textarea
+                    name="cover"
+                    rows={4}
+                    placeholder="Tell us a bit about yourself and why you'd like to join Savitron.ai…"
+                    className="w-full px-4 py-3 rounded-xl bg-page border border-border focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 text-ink text-sm resize-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-ink-muted uppercase tracking-widest mb-1.5">Attach CV <span className="text-ink-faint font-normal normal-case">(PDF, DOC, DOCX — max 5 MB)</span></label>
+                  <input
+                    name="cv"
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    className="w-full text-sm text-ink-muted file:mr-4 file:py-2 file:px-4 file:rounded-full file:border file:border-gold/40 file:text-xs file:font-semibold file:bg-gold/5 file:text-gold hover:file:bg-gold/10 cursor-pointer"
+                  />
+                </div>
+
+                {formState === "error" && (
+                  <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded-xl px-4 py-3">{errorMsg}</p>
+                )}
+
+                <div className="flex items-center gap-3 pt-2">
+                  <button
+                    type="submit"
+                    disabled={formState === "submitting"}
+                    className="btn-primary flex-1 justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {formState === "submitting" ? "Sending…" : "Submit Application"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={closeModal}
+                    className="px-5 py-2.5 rounded-full border border-border text-sm font-medium text-ink-muted hover:border-gold hover:text-gold transition-colors"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 }
