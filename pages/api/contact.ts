@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 type SuccessResponse = { ok: true };
 type ErrorResponse = { ok: false; error: string };
 
-const RECIPIENT = "s.vivek@savitursolutions.com";
+const RECIPIENT = "connect@savitron.ai";
 
 function escapeHtml(str: string): string {
   return str
@@ -63,7 +63,7 @@ export default async function handler(
   const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
 
   const textBody = [
-    `New enquiry from savitursolutions.com`,
+    `New enquiry from savitron.ai`,
     ``,
     `Name: ${name}`,
     `Email: ${email}`,
